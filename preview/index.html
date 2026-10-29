@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TidePath — پیش‌نمایش آزمون</title>
+  <link rel="stylesheet" href="../assets/css/quiz-v2.css">
+  <style>
+    body { margin: 0; background: #f6f8f7; }
+    @media (prefers-color-scheme: dark) { body { background: #0b1512; } }
+    .bar { font-family: Vazirmatn, Tahoma, sans-serif; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+      text-align: center; padding: 10px 16px; font-size: .85rem; background: #0f9f6e; color: #fff; }
+    .bar button { font: inherit; font-weight: 700; color: #0f9f6e; background: #fff; border: 0; border-radius: 99px; padding: 3px 14px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="bar"><span id="note">پیش‌نمایش محلی: ارزیابی در مرورگر انجام می‌شود و هیچ داده‌ای ارسال یا ذخیره نمی‌شود.</span><button type="button" id="lang">English</button></div>
+  <div id="quiz-v2"></div>
+  <script src="../assets/js/glp1-engine.js"></script>
+  <script src="../assets/js/wizard-v2.js"></script>
+  <script>
+    var lang = 'fa';
+    var quiz = Glp1QuizV2.mount(document.getElementById('quiz-v2'), {
+      quizUrl: '../data/quiz-v2.json',
+      lessonsUrl: '../data/lessons.json',
+      mock: true
+    });
+    document.getElementById('lang').addEventListener('click', function () {
+      lang = lang === 'fa' ? 'en' : 'fa';
+      this.textContent = lang === 'fa' ? 'English' : 'فارسی';
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+      document.getElementById('note').textContent = lang === 'fa'
+        ? 'پیش‌نمایش محلی: ارزیابی در مرورگر انجام می‌شود و هیچ داده‌ای ارسال یا ذخیره نمی‌شود.'
+        : 'Local preview: the assessment runs in the browser and nothing is sent or saved.';
+      quiz.setLang(lang);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+{
+ "version": "1.0.0",
+ "lang": "en",
+ "note": "English patient lessons. Iran-specific content (local regulator, local reports, local phone numbers) is left out. routes sets which result route suggests a lesson automatically.",
+ "maxPerResult": 7,
+ "lessons": [
+  {
+   "id": "basics",
+   "title": "GLP-1 in plain words",
+   "minutes": 2,
+   "routes": [
+    "C",
+    "D",
+    "E"
+   ],
+   "priority": 3,
+   "summary": "These medicines copy a gut hormone: you feel full sooner and think about food less.",
+   "sections": [
+    {
+     "h": "How does it work?",
+     "points": [
+      "After a meal, the gut makes a hormone called GLP-1 that tells the brain you are full and slows stomach emptying.",
+      "Medicines in this group do the same thing, for longer and more strongly.",
+      "Besides GLP-1, tirzepatide also acts on the GIP hormone and, on average, gives more weight loss."
+     ]
+    },
+    {
+     "h": "What it is not",
+     "points": [
+      "It does not replace healthy eating and exercise; results are best alongside an eating plan and muscle protection.",
+      "It is not a short treatment; obesity is a chronic disease and appetite returns when the medicine stops."
+     ]
+    }
+   ],
+   "source": "Drucker 2018; STEP 4; SURMOUNT-4"
+  },
+  {
+   "id": "eligibility",
+   "title": "Who really needs these medicines?",
+   "minutes": 2,
+   "routes": [
+    "C",
+    "D",
+    "E"
+   ],
+   "priority": 2,
+   "summary": "Official criteria: a BMI of 30 or more, or 27 or more with a weight-related condition.",
+   "sections": [
+    {
+     "h": "Official criteria",
+     "points": [
+      "Obesity: BMI of 30 or more.",
+      "Overweight: BMI of 27 or more with high blood pressure, diabetes or prediabetes, high lipids, sleep apnea, fatty liver or heart disease.",
+      "Type 2 diabetes: for blood-sugar control regardless of weight, with a doctor’s advice."
+     ]
+    },
+    {
+     "h": "Beyond BMI",
+     "points": [
+      "BMI alone is not enough; a large waist (waist-to-height ratio of 0.5 or more) is a sign of harmful abdominal fat.",
+      "If your weight is healthy and you only have a few extra kilos, the side effects can outweigh the benefits."
+     ]
+    }
+   ],
+   "source": "NICE NG246; NICE TA875 and TA1026; Ashwell 2012"
+  },
+  {
+   "id": "nondrug",
+   "title": "Losing weight without medicine: a 12-week map",
+   "minutes": 3,
+   "routes": [
+    "C"
+   ],
+   "priority": 1,
+   "summary": "A modest energy deficit, enough protein and strength training: slow but lasting.",
+   "sections": [
+    {
+     "h": "Eating",
+     "points": [
+      "Eat about 300 to 500 kcal a day below your needs; very low-calorie diets destroy muscle.",
+      "Start each meal with protein, then vegetables, and finish with bread or rice.",
+      "Fibre from vegetables, fruit with the skin, oats and pulses; enough water through the day."
+     ]
+    },
+    {
+     "h": "Movement",
+     "points": [
+      "150 minutes of brisk walking or aerobic activity a week.",
+      "2 strength sessions with weights, bands or body weight."
+     ]
+    },
+    {
+     "h": "Tracking",
+     "points": [
+      "Weigh yourself once a week and measure your waist once a month.",
+      "A realistic goal: 0.5 to 1% of your weight a week.",
+      "Reassess after 3 months."
+     ]
+    }
+   ],
+   "source": "WHO 2020 physical activity guidelines; ADA Standards of Care 2025"
+  },
+  {
+   "id": "protein-muscle",
+   "title": "Protein and muscle: the key point of weight loss",
+   "minutes": 2,
+   "routes": [
+    "C",
+    "D",
+    "E"
+   ],
+   "priority": 2,
+   "summary": "When appetite drops, the main risk is losing muscle, not fat.",
+   "sections": [
+    {
+     "h": "How much protein?",
+     "points": [
+      "During treatment, usually 1.2 to 1.6 g per kg of adjusted body weight; a dietitian sets the exact amount.",
+      "25 to 30 g per meal: for example, a palm-sized portion of chicken or fish, or 2 eggs with a cup of yogurt.",
+      "Not being hungry is no reason to skip a meal; add a protein snack if needed."
+     ]
+    },
+    {
+     "h": "Exercise",
+     "points": [
+      "Strength training 2 to 3 times a week is the main protection for muscle.",
+      "Discuss losing more than 1.5% of your weight a week with a professional; it usually means under-eating and muscle loss."
+     ]
+    }
+   ],
+   "source": "Bauer 2013 (PROT-AGE); joint advisory on nutrition with GLP-1 therapy 2025"
+  },
+  {
+   "id": "eating",
+   "title": "Eating while on the medicine",
+   "minutes": 3,
+   "routes": [
+    "D",
+    "E"
+   ],
+   "priority": 1,
+   "summary": "Small regular meals, protein first, eat slowly and drink enough water.",
+   "sections": [
+    {
+     "h": "Daily rules",
+     "points": [
+      "Three small regular meals; a protein snack if needed.",
+      "Eat slowly and stop at the first feeling of fullness.",
+      "At least 8 glasses of water; more in hot weather or with diarrhoea or vomiting.",
+      "Cut down heavy fats and fried food, especially in the first days after an injection.",
+      "Increase fibre gradually to avoid constipation."
+     ]
+    },
+    {
+     "h": "Micronutrients",
+     "points": [
+      "With smaller meals, iron, B12, calcium, vitamin D, zinc and magnesium may run low.",
+      "If your intake is very low, ask a dietitian about a multivitamin."
+     ]
+    }
+   ],
+   "source": "Joint advisory on nutrition with GLP-1 therapy 2025"
+  },
+  {
+   "id": "side-effects",
+   "title": "Common side effects and what to do",
+   "minutes": 3,
+   "routes": [
+    "D",
+    "E"
+   ],
+   "priority": 2,
+   "summary": "Most side effects are digestive, worse in the first weeks and after each dose increase, and they ease over time.",
+   "sections": [
+    {
+     "h": "At home",
+     "points": [
+      "Nausea: small low-fat meals, fluids between meals, ginger or dry crackers.",
+      "Constipation: more water, gradual fibre, walking.",
+      "Diarrhoea: water and oral rehydration solution, temporarily less fat.",
+      "Heartburn: do not lie down for 2 to 3 hours after eating; avoid fizzy drinks.",
+      "Hair loss: usually linked to fast weight loss and it grows back; eat enough protein."
+     ]
+    },
+    {
+     "h": "When should I call?",
+     "points": [
+      "Nausea for more than a week, or being unable to eat.",
+      "Diarrhoea for more than 24 hours, or constipation for more than 3 to 4 days.",
+      "If side effects are heavy, the doctor can delay the next dose increase."
+     ]
+    }
+   ],
+   "source": "Wegovy and Zepbound prescribing information; STEP 1; SURMOUNT-1"
+  },
+  {
+   "id": "red-flags",
+   "title": "Warning signs: get help now",
+   "minutes": 1,
+   "routes": [
+    "D",
+    "E"
+   ],
+   "priority": 1,
+   "summary": "These signs are rare but serious; if you notice them, skip the dose and get medical help right away (call your local emergency number).",
+   "sections": [
+    {
+     "h": "Signs",
+     "points": [
+      "Severe, constant pain in the upper abdomen that spreads to the back (possible pancreatitis).",
+      "Pain in the upper right abdomen, fever or yellow skin (gallbladder).",
+      "Vomiting or diarrhoea for more than 24 hours with little urine and dizziness (dehydration and kidney injury).",
+      "Swelling of the face, lips or throat, or trouble breathing (severe allergy).",
+      "Severe abdominal pain with bloating and not passing gas (bowel obstruction).",
+      "A lump in the neck, hoarseness or trouble swallowing.",
+      "Severe low mood or thoughts of self-harm (contact a crisis line now)."
+     ]
+    }
+   ],
+   "source": "Wegovy and Zepbound prescribing information"
+  },
+  {
+   "id": "dosing",
+   "title": "Starting treatment and realistic expectations",
+   "minutes": 2,
+   "routes": [
+    "E"
+   ],
+   "priority": 3,
+   "summary": "The dose goes up in small steps; the first doses are for getting used to it, not for weight loss.",
+   "sections": [
+    {
+     "h": "Dose steps (set by your doctor)",
+     "points": [
+      "Tirzepatide: 2.5 → 5 → 7.5 → 10 → 12.5 → 15 mg, at least every 4 weeks.",
+      "Semaglutide for obesity: 0.25 → 0.5 → 1 → 1.7 → 2.4 mg, every 4 weeks.",
+      "Liraglutide: 0.6 to 3 mg daily, one step each week."
+     ]
+    },
+    {
+     "h": "How much weight is lost?",
+     "points": [
+      "In trials, over about one to one and a half years, average loss was about 8% with liraglutide, about 15% with semaglutide 2.4 mg and about 20% with high-dose tirzepatide.",
+      "These are averages; individual responses vary."
+     ]
+    }
+   ],
+   "source": "SCALE; STEP 1; SURMOUNT-1"
+  },
+  {
+   "id": "safe-buy",
+   "title": "Buying safely, storage and missed doses",
+   "minutes": 2,
+   "routes": [
+    "E"
+   ],
+   "priority": 2,
+   "summary": "Only from a licensed pharmacy, with a prescription.",
+   "sections": [
+    {
+     "h": "Buying",
+     "points": [
+      "Buy only from a licensed pharmacy with a prescription; avoid gyms, beauty clinics and online sellers.",
+      "Unlicensed and “compounded” copies may contain the wrong dose or other substances.",
+      "Never share a pen with anyone, even with a new needle."
+     ]
+    },
+    {
+     "h": "Storage and missed doses",
+     "points": [
+      "Keep unused pens in the fridge (2 to 8 °C), away from the freezer.",
+      "Tirzepatide: take a missed dose if it is within 4 days, otherwise skip it. Semaglutide: within 5 days.",
+      "Never take two doses together."
+     ]
+    }
+   ],
+   "source": "Wegovy and Zepbound prescribing information"
+  },
+  {
+   "id": "stopping",
+   "title": "Stopping the medicine and weight regain",
+   "minutes": 2,
+   "routes": [
+    "D",
+    "E"
+   ],
+   "priority": 3,
+   "summary": "When the medicine stops, appetite returns and most people regain part of the weight.",
+   "sections": [
+    {
+     "h": "The facts",
+     "points": [
+      "In withdrawal trials, most participants regained a large part of the lost weight within a year.",
+      "These medicines work more like treatment for a chronic disease than a short course."
+     ]
+    },
+    {
+     "h": "What can I do?",
+     "points": [
+      "Before starting, plan for at least a year of cost.",
+      "Build eating habits and strength training from the first month.",
+      "Reduce or stop the medicine gradually with your doctor, not suddenly."
+     ]
+    }
+   ],
+   "source": "STEP 4; STEP 1 extension; SURMOUNT-4"
+  },
+  {
+   "id": "beyond-weight",
+   "title": "Benefits beyond weight",
+   "minutes": 1,
+   "routes": [],
+   "priority": 4,
+   "summary": "In some conditions, these medicines help beyond weight loss.",
+   "sections": [
+    {
+     "h": "Evidence",
+     "points": [
+      "In people with obesity and heart disease, semaglutide reduced cardiovascular events (SELECT trial).",
+      "Semaglutide slowed kidney disease in diabetes (FLOW) and is approved for inflammatory fatty liver disease.",
+      "Tirzepatide is approved for sleep apnea with obesity."
+     ]
+    }
+   ],
+   "source": "SELECT; FLOW; ESSENCE; SURMOUNT-OSA"
+  },
+  {
+   "id": "pregnancy",
+   "title": "Pregnancy, breastfeeding and these medicines",
+   "minutes": 1,
+   "routes": [],
+   "priority": 1,
+   "summary": "They are not used in pregnancy or breastfeeding and must be stopped before trying to conceive.",
+   "sections": [
+    {
+     "h": "Key points",
+     "points": [
+      "Semaglutide is usually stopped at least 2 months before trying to conceive.",
+      "If you become pregnant while taking it, stop the medicine and tell your doctor.",
+      "During this time the goal is not weight loss; enough nutrition and normal pregnancy weight gain matter, and a dietitian can help."
+     ]
+    }
+   ],
+   "source": "Wegovy and Zepbound prescribing information"
+  },
+  {
+   "id": "contraception",
+   "title": "The contraceptive pill and tirzepatide",
+   "minutes": 1,
+   "routes": [],
+   "priority": 2,
+   "summary": "Tirzepatide may make the oral contraceptive pill less effective.",
+   "sections": [
+    {
+     "h": "What should I do?",
+     "points": [
+      "For the first 4 weeks and for 4 weeks after each dose increase, use a backup method (such as condoms) or a non-oral method.",
+      "Talk to a gynaecologist about the best method for you."
+     ]
+    }
+   ],
+   "source": "Zepbound prescribing information"
+  },
+  {
+   "id": "thyroid",
+   "title": "The thyroid and medullary cancer",
+   "minutes": 1,
+   "routes": [],
+   "priority": 1,
+   "summary": "A personal or family history of medullary thyroid cancer or MEN 2 is a contraindication.",
+   "sections": [
+    {
+     "h": "Key points",
+     "points": [
+      "This contraindication is based on animal findings and covers every medicine in this group.",
+      "An underactive or overactive thyroid, or a simple nodule, is not a contraindication, but tell your doctor.",
+      "If you do not know which thyroid cancer runs in your family, find out before starting.",
+      "Report a neck lump, hoarseness or trouble swallowing right away."
+     ]
+    }
+   ],
+   "source": "Wegovy and Zepbound prescribing information"
+  },
+  {
+   "id": "hypoglycemia",
+   "title": "Low blood sugar with insulin and diabetes tablets",
+   "minutes": 1,
+   "routes": [],
+   "priority": 1,
+   "summary": "On their own these medicines rarely lower blood sugar too much, but with insulin or glibenclamide there is a risk.",
+   "sections": [
+    {
+     "h": "What should I do?",
+     "points": [
+      "Before starting, your doctor should review your insulin or diabetes tablet dose.",
+      "Signs of low blood sugar: shaking, sweating, confusion, a racing heart.",
+      "If your sugar is low: a glass of fruit juice or 3 sugar cubes, then check again after 15 minutes.",
+      "Do not skip meals."
+     ]
+    }
+   ],
+   "source": "ADA Standards of Care 2025"
+  },
+  {
+   "id": "surgery",
+   "title": "Surgery, endoscopy and anaesthesia",
+   "minutes": 1,
+   "routes": [],
+   "priority": 1,
+   "summary": "These medicines slow stomach emptying, so fasting before anaesthesia may need to change.",
+   "sections": [
+    {
+     "h": "What should I do?",
+     "points": [
+      "Always tell your surgeon and anaesthetist that you take this medicine.",
+      "The decision to pause it or change fasting belongs to the anaesthesia team.",
+      "It is better to start the medicine after the operation."
+     ]
+    }
+   ],
+   "source": "American Society of Anesthesiologists guidance 2023"
+  },
+  {
+   "id": "caution-organs",
+   "title": "Pancreas, gallbladder and kidneys",
+   "minutes": 2,
+   "routes": [],
+   "priority": 2,
+   "summary": "A history of disease in these organs is not an absolute contraindication, but the decision is the doctor’s, with close follow-up.",
+   "sections": [
+    {
+     "h": "Why it matters",
+     "points": [
+      "Pancreatitis: with severe abdominal pain the medicine is stopped and checked; with a history of pancreatitis, use with caution or not at all.",
+      "Gallbladder: fast weight loss raises the risk of gallstones.",
+      "Kidneys: vomiting and diarrhoea with dehydration can harm the kidneys; enough water and a creatinine test matter."
+     ]
+    }
+   ],
+   "source": "Wegovy and Zepbound prescribing information"
+  },
+  {
+   "id": "mind",
+   "title": "Emotional eating and mood",
+   "minutes": 2,
+   "routes": [],
+   "priority": 1,
+   "summary": "Eating disorders and depression should be assessed and treated separately before medical treatment.",
+   "sections": [
+    {
+     "h": "Key points",
+     "points": [
+      "These medicines reduce appetite and, with an eating disorder, may strengthen an unhealthy pattern.",
+      "If your mood gets worse during treatment, tell your doctor.",
+      "A psychologist or psychiatrist can help alongside your eating plan.",
+      "If you have thoughts of harming yourself, contact your local emergency number or a crisis line now."
+     ]
+    }
+   ],
+   "source": "SCOFF (Morgan 1999); PHQ-2 (Kroenke 2003)"
+  },
+  {
+   "id": "teens",
+   "title": "Teenagers and weight-loss medicines",
+   "minutes": 1,
+   "routes": [],
+   "priority": 1,
+   "summary": "From 12 to 17, only some medicines, and only under a paediatrician or paediatric endocrinologist.",
+   "sections": [
+    {
+     "h": "Key points",
+     "points": [
+      "In teenagers, weight is judged by BMI-for-age percentile, not adult numbers.",
+      "Growth, puberty and enough nutrition come first; strict dieting is harmful.",
+      "A family eating and activity plan is the base of treatment."
+     ]
+    }
+   ],
+   "source": "STEP TEENS"
+  },
+  {
+   "id": "sleep",
+   "title": "Snoring, sleep apnea and weight",
+   "minutes": 1,
+   "routes": [],
+   "priority": 3,
+   "summary": "Loud snoring with daytime sleepiness can be a sign of sleep apnea.",
+   "sections": [
+    {
+     "h": "Key points",
+     "points": [
+      "Sleep apnea is linked with high blood pressure, heart disease and difficulty losing weight.",
+      "It is diagnosed with a sleep study; talk to your doctor.",
+      "Weight loss improves sleep apnea, and tirzepatide is approved for sleep apnea with obesity."
+     ]
+    }
+   ],
+   "source": "SURMOUNT-OSA"
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "version": "1.0.0",
+ "note": "منابع علمی ارزیابی و درسنامه‌ها. iran: true یعنی منبع ایرانی است و فقط در نسخه فارسی نشان داده می‌شود. cite متن استناد است؛ url اختیاری است.",
+ "groups": [
+  {"id": "mechanism", "title": {"fa": "سازوکار و اثربخشی", "en": "Mechanism and efficacy"}, "items": [
+   {"cite": "Drucker DJ. Mechanisms of action and therapeutic application of glucagon-like peptide-1. Cell Metab. 2018;27(4):740-756.", "url": "https://doi.org/10.1016/j.cmet.2018.03.001"},
+   {"cite": "Wilding JPH, Batterham RL, Calanna S, et al. Once-weekly semaglutide in adults with overweight or obesity (STEP 1). N Engl J Med. 2021;384(11):989-1002.", "url": "https://doi.org/10.1056/NEJMoa2032183"},
+   {"cite": "Jastreboff AM, Aronne LJ, Ahmad NN, et al. Tirzepatide once weekly for the treatment of obesity (SURMOUNT-1). N Engl J Med. 2022;387(3):205-216.", "url": "https://doi.org/10.1056/NEJMoa2206038"},
+   {"cite": "Pi-Sunyer X, Astrup A, Fujioka K, et al. A randomized, controlled trial of 3.0 mg of liraglutide in weight management (SCALE). N Engl J Med. 2015;373(1):11-22.", "url": "https://doi.org/10.1056/NEJMoa1411892"},
+   {"cite": "Weghuber D, Barrett T, Barrientos-Pérez M, et al. Once-weekly semaglutide in adolescents with obesity (STEP TEENS). N Engl J Med. 2022;387(24):2245-2257.", "url": "https://doi.org/10.1056/NEJMoa2208601"}
+  ]},
+  {"id": "beyond", "title": {"fa": "فایده‌های فراتر از وزن", "en": "Benefits beyond weight"}, "items": [
+   {"cite": "Lincoff AM, Brown-Frandsen K, Colhoun HM, et al. Semaglutide and cardiovascular outcomes in obesity without diabetes (SELECT). N Engl J Med. 2023;389(24):2221-2232.", "url": "https://doi.org/10.1056/NEJMoa2307563"},
+   {"cite": "Perkovic V, Tuttle KR, Rossing P, et al. Effects of semaglutide on chronic kidney disease in patients with type 2 diabetes (FLOW). N Engl J Med. 2024;391(2):109-121.", "url": "https://doi.org/10.1056/NEJMoa2403347"},
+   {"cite": "Malhotra A, Grunstein RR, Fietze I, et al. Tirzepatide for the treatment of obstructive sleep apnea and obesity (SURMOUNT-OSA). N Engl J Med. 2024;391(13):1193-1205.", "url": "https://doi.org/10.1056/NEJMoa2404881"},
+   {"cite": "Sanyal AJ, Newsome PN, Kliers I, et al. Phase 3 trial of semaglutide in metabolic dysfunction-associated steatohepatitis (ESSENCE). N Engl J Med. 2025;392:2089-2099.", "url": "https://doi.org/10.1056/NEJMoa2413258"}
+  ]},
+  {"id": "maintenance", "title": {"fa": "قطع دارو و حفظ نتیجه", "en": "Stopping treatment and keeping the result"}, "items": [
+   {"cite": "Rubino D, Abrahamsson N, Davies M, et al. Effect of continued weekly subcutaneous semaglutide vs placebo on weight loss maintenance in adults with overweight or obesity: the STEP 4 randomized clinical trial. JAMA. 2021;325(14):1414-1425.", "url": "https://doi.org/10.1001/jama.2021.3224"},
+   {"cite": "Wilding JPH, Batterham RL, Davies M, et al. Weight regain and cardiometabolic effects after withdrawal of semaglutide: the STEP 1 trial extension. Diabetes Obes Metab. 2022;24(8):1553-1564.", "url": "https://doi.org/10.1111/dom.14725"},
+   {"cite": "Aronne LJ, Sattar N, Horn DB, et al. Continued treatment with tirzepatide for maintenance of weight reduction in adults with obesity: the SURMOUNT-4 randomized clinical trial. JAMA. 2024;331(1):38-48.", "url": "https://doi.org/10.1001/jama.2023.24945"}
+  ]},
+  {"id": "criteria", "title": {"fa": "معیارها و راهنماهای بالینی", "en": "Eligibility criteria and clinical guidelines"}, "items": [
+   {"cite": "National Institute for Health and Care Excellence (NICE). Overweight and obesity management. NICE guideline NG246. 2025.", "url": "https://www.nice.org.uk/guidance/ng246"},
+   {"cite": "NICE. Semaglutide for managing overweight and obesity. Technology appraisal guidance TA875. 2023.", "url": "https://www.nice.org.uk/guidance/ta875"},
+   {"cite": "NICE. Tirzepatide for managing overweight and obesity. Technology appraisal guidance TA1026. 2024.", "url": "https://www.nice.org.uk/guidance/ta1026"},
+   {"cite": "American Diabetes Association Professional Practice Committee. 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care. 2025;48(Suppl 1):S167-S180.", "url": "https://doi.org/10.2337/dc25-S008"},
+   {"cite": "Sharma AM, Kushner RF. A proposed clinical staging system for obesity (Edmonton Obesity Staging System, EOSS). Int J Obes (Lond). 2009;33(3):289-295.", "url": "https://doi.org/10.1038/ijo.2009.2"},
+   {"cite": "Ashwell M, Gunn P, Gibson S. Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors: systematic review and meta-analysis. Obes Rev. 2012;13(3):275-286.", "url": "https://doi.org/10.1111/j.1467-789X.2011.00952.x"}
+  ]},
+  {"id": "safety", "title": {"fa": "ایمنی، منع مصرف و تداخل‌ها", "en": "Safety, contraindications and interactions"}, "items": [
+   {"cite": "Novo Nordisk. Wegovy (semaglutide) injection: prescribing information. U.S. Food and Drug Administration (DailyMed).", "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=wegovy"},
+   {"cite": "Eli Lilly and Company. Zepbound (tirzepatide) injection: prescribing information. U.S. Food and Drug Administration (DailyMed).", "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=zepbound"},
+   {"cite": "Marso SP, Bain SC, Consoli A, et al. Semaglutide and cardiovascular outcomes in patients with type 2 diabetes (SUSTAIN-6). N Engl J Med. 2016;375(19):1834-1844.", "url": "https://doi.org/10.1056/NEJMoa1607141"},
+   {"cite": "Joshi GP, Abdelmalak BB, Weigel WA, et al. American Society of Anesthesiologists consensus-based guidance on preoperative management of patients (adults and children) on glucagon-like peptide-1 (GLP-1) receptor agonists. American Society of Anesthesiologists. 2023."}
+  ]},
+  {"id": "screening", "title": {"fa": "ابزارهای غربالگری خوردن و حال روحی", "en": "Eating and mood screening tools"}, "items": [
+   {"cite": "Morgan JF, Reid F, Lacey JH. The SCOFF questionnaire: assessment of a new screening tool for eating disorders. BMJ. 1999;319(7223):1467-1468.", "url": "https://doi.org/10.1136/bmj.319.7223.1467"},
+   {"cite": "Kroenke K, Spitzer RL, Williams JBW. The Patient Health Questionnaire-2: validity of a two-item depression screener. Med Care. 2003;41(11):1284-1292.", "url": "https://doi.org/10.1097/01.MLR.0000093487.78664.3C"}
+  ]},
+  {"id": "nutrition", "title": {"fa": "تغذیه، پروتئین و تمرین", "en": "Nutrition, protein and exercise"}, "items": [
+   {"cite": "Mozaffarian D, Agarwal M, Aggarwal M, et al. Nutritional priorities to support GLP-1 therapy for obesity: a joint advisory from the American College of Lifestyle Medicine, the American Society for Nutrition, the Obesity Medicine Association, and The Obesity Society. 2025."},
+   {"cite": "Bauer J, Biolo G, Cederholm T, et al. Evidence-based recommendations for optimal dietary protein intake in older people: a position paper from the PROT-AGE Study Group. J Am Med Dir Assoc. 2013;14(8):542-559.", "url": "https://doi.org/10.1016/j.jamda.2013.05.021"},
+   {"cite": "World Health Organization. WHO guidelines on physical activity and sedentary behaviour. Geneva: WHO; 2020.", "url": "https://www.who.int/publications/i/item/9789240015128"}
+  ]},
+  {"id": "iran", "iran": true, "title": {"fa": "منابع ایران", "en": "Iran"}, "items": [
+   {"iran": true, "cite": "جزوه GLP-1، به‌روز تا ۶ آبان ۱۴۰۵. منبع اصلی درسنامه‌های بیمار این ارزیابی (فصل‌های ۱ تا ۱۵)."},
+   {"iran": true, "cite": "Azizi F, Khalili D, Aghajani H, et al. Appropriate waist circumference cut-off points among Iranian adults: the first report of the Iranian National Committee of Obesity. Arch Iran Med. 2010;13(3):243-244."},
+   {"iran": true, "cite": "سازمان غذا و دارو. ممنوعیت فروش داروهای این گروه در باشگاه، مرکز زیبایی و فضای مجازی و استعلام اصالت دارو با کد IRC در برنامه تی‌تک (به نقل از جزوه GLP-1، فصل ۳ و ۹)."},
+   {"iran": true, "cite": "مرکز ثبت و بررسی عوارض ناخواسته داروها، سازمان غذا و دارو. گزارش‌های عوارض تیرزپاتاید تا شهریور ۱۴۰۵ (به نقل از جزوه GLP-1، فصل ۱۵)."},
+   {"iran": true, "cite": "شماره‌های کمک: اورژانس ۱۱۵، اورژانس اجتماعی ۱۲۳، صدای مشاور بهزیستی ۱۴۸۰."}
+  ]}
+ ]
+}

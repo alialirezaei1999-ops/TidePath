@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TidePath — غربالگری داروهای GLP-1 و انتخاب بهترین مسیر</title>
+<script>(function(d){var l,ok;try{l=localStorage.getItem("glp1_lang");ok=sessionStorage.getItem("glp1_disclaimer_ok")==="1"}catch(e){}if(l==="en"){d.lang="en";d.dir="ltr"}if(!ok){d.classList.add("gate")}else if(!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("anim");setTimeout(function(){d.classList.remove("anim")},3200)}})(document.documentElement);</script>
+<meta name="description" content="ارزیابی برای این‌که بدانید داروهای GLP-1 مثل سماگلوتاید و تیرزپاتاید برای شما مناسب‌اند یا نه؛ جایگزین نظر پزشک و متخصص تغذیه بالینی نیست.">
+<meta name="theme-color" content="#030c0b">
+<link rel="stylesheet" href="assets/css/quiz-v2.css">
+<style>
+/* ---------- embedded faces (self-hosted, OFL) ---------- */
+@font-face{font-family:'Vazirmatn';src:url(assets/fonts/vazirmatn-arabic-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:block;unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:'Vazirmatn';src:url(assets/fonts/vazirmatn-arabic-700.woff2) format('woff2');font-weight:700;font-style:normal;font-display:block;unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:'Vazirmatn';src:url(assets/fonts/vazirmatn-arabic-800.woff2) format('woff2');font-weight:800;font-style:normal;font-display:block;unicode-range:U+0600-06FF,U+0750-077F,U+08A0-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:'Vazirmatn';src:url(assets/fonts/vazirmatn-latin-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:block;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2190-2193,U+2212,U+FEFF,U+FFFD}
+@font-face{font-family:'Vazirmatn';src:url(assets/fonts/vazirmatn-latin-700.woff2) format('woff2');font-weight:700;font-style:normal;font-display:block;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2190-2193,U+2212,U+FEFF,U+FFFD}
+@font-face{font-family:'Vazirmatn';src:url(assets/fonts/vazirmatn-latin-800.woff2) format('woff2');font-weight:800;font-style:normal;font-display:block;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2190-2193,U+2212,U+FEFF,U+FFFD}
+@font-face{font-family:'Chakra S';src:url(assets/fonts/chakra-petch-latin-700.woff2) format('woff2');font-weight:700;font-style:normal;font-display:block}
+
+/* ---------- reference unit ----------
+   Every measurement is a pixel value on a 1280x800 reference canvas.
+   --u is the reference pixel and scales with the viewport. Placement is
+   written with logical properties (inline-start / inline-end), so the
+   same chrome mirrors itself between Persian (rtl) and English (ltr). */
+:root{
+  --u: clamp(0.68px, min(100vw / 1280, 100vh / 800), 1.72px);
+  --t: var(--u);
+  --u: clamp(0.68px, min(100vw / 1280, 100dvh / 800), 1.72px);
+  --line: rgba(214,255,240,.13);
+  --mint:#cdeee1;           /* the one solid surface: MENU pill */
+  --ink:#062019;
+  --text:#e9f6f1;
+  --muted:rgba(214,238,230,.74);
+  --hair: max(1px, calc(1 * var(--u)));
+  --nudge: 0px;
+  --flip: -1;               /* rtl: icons drawn for ltr are mirrored */
+  color-scheme: dark;
+}
+[dir="ltr"]{ --flip: 1; }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:#030c0b;color:var(--text);overflow:hidden;
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:geometricPrecision;
+}
+.stage{position:fixed;inset:0;overflow:hidden}
+
+/* ---------- scene: a live render of the GLP-1 peptide over still water ---------- */
+.bg{position:absolute;inset:0;
+    background:radial-gradient(ellipse 70% 60% at 50% 42%, #0d2b27 0%, #051311 48%, #020807 100%)}
+.bg canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.bg{will-change:transform;transform-origin:50% 50%;backface-visibility:hidden}
+/* legibility: the copy always sits on the darker foot of the scene */
+.shade{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top, rgba(2,9,8,.82) 0%, rgba(2,9,8,.42) 30%, rgba(2,9,8,0) 54%),
+             radial-gradient(ellipse 80% 70% at 50% 44%, transparent 55%, rgba(1,6,5,.6) 100%)}
+
+/* chapter change: the headline drops back into its mask and the paragraph
+   settles out, the copy is swapped, and both return the way they entered */
+.hero .hrise{transition:transform .5s var(--e-mask)}
+.hero .blurb{transition:opacity .4s ease, transform .4s ease}
+.swapping .hrise{transform:translateY(112%)}
+.swapping .blurb{opacity:0;transform:translateY(calc(7*var(--t)))}
+
+/* ---------- frame: 30u inset, 1px hairline, 26u chamfer on all four corners ---------- */
+.frame{position:absolute;left:calc(30*var(--u));top:calc(30*var(--u));
+       right:calc(30*var(--u));bottom:calc(31*var(--u))}
+.ln{position:absolute;background:var(--line)}
+.ln-t{left:calc(26*var(--u));right:calc(26*var(--u));top:0;height:var(--hair)}
+.ln-b{left:calc(26*var(--u));right:calc(26*var(--u));bottom:0;height:var(--hair)}
+.ln-l{top:calc(26*var(--u));bottom:calc(26*var(--u));left:0;width:var(--hair)}
+.ln-r{top:calc(26*var(--u));bottom:calc(26*var(--u));right:0;width:var(--hair)}
+.cn{position:absolute;width:calc(26*var(--u));height:calc(26*var(--u))}
+.cn-tl{left:0;top:0;background:linear-gradient(to bottom right,transparent calc(50% - .65px),var(--line) calc(50% - .65px),var(--line) calc(50% + .65px),transparent calc(50% + .65px))}
+.cn-br{right:0;bottom:0;background:linear-gradient(to bottom right,transparent calc(50% - .65px),var(--line) calc(50% - .65px),var(--line) calc(50% + .65px),transparent calc(50% + .65px))}
+.cn-tr{right:0;top:0;background:linear-gradient(to bottom left,transparent calc(50% - .65px),var(--line) calc(50% - .65px),var(--line) calc(50% + .65px),transparent calc(50% + .65px))}
+.cn-bl{left:0;bottom:0;background:linear-gradient(to bottom left,transparent calc(50% - .65px),var(--line) calc(50% - .65px),var(--line) calc(50% + .65px),transparent calc(50% + .65px))}
+
+/* ---------- gate: until the medical notice is accepted, only the notice is on screen ---------- */
+.gate .stage{visibility:hidden}
+
+/* ---------- footer: the advice to see a clinician, and the profile buttons ---------- */
+.site-foot{--q2-line:rgba(214,255,240,.2);--q2-text:#e9f6f1;--q2-muted:rgba(214,238,230,.7);--q2-brand:#7fe3c4;
+           --q2-pick:rgba(127,227,196,.1);--q2-card:rgba(240,255,250,.04);--q2-ease:cubic-bezier(.22,.61,.36,1)}
+.refs-foot{margin:28px 0 0;padding-top:18px;border-top:1px solid var(--line);text-align:center;font-size:.85rem;color:var(--muted);line-height:1.9}
+.refs-foot .q2-foot-text > span{display:block}
+
+/* ---------- shared label face: Vazirmatn in Persian, Chakra Petch capitals in English ---------- */
+.lbl{font-family:'Vazirmatn',Tahoma,sans-serif;font-weight:700;
+     font-size:calc(11.5*var(--t));line-height:1;white-space:nowrap}
+[lang="en"] .lbl,[lang="en"] .index a{font-family:'Chakra S','Vazirmatn',sans-serif;font-size:calc(10*var(--t));
+     text-transform:uppercase;letter-spacing:calc(.6*var(--t))}
+.t{position:relative;top:var(--nudge);display:inline-block;text-align:start;white-space:pre}
+button{font:inherit;color:inherit}
+
+/* ---------- masthead ---------- */
+.logo{position:absolute;inset-inline-start:calc(24*var(--t));top:calc(19*var(--t));
+      height:calc(26*var(--t));display:flex;align-items:center;text-decoration:none;color:#fff}
+.logo-in{display:flex;align-items:center;gap:calc(10*var(--t))}
+.logo b{font-family:'Chakra S',sans-serif;font-weight:700;font-size:calc(19*var(--t));line-height:1;
+        letter-spacing:calc(1.8*var(--t));direction:ltr;unicode-bidi:isolate}
+.logo b span{color:#7fe3c4}
+.logo i{font-style:normal;font-weight:700;font-size:calc(10.5*var(--t));line-height:1;
+        color:rgba(214,240,232,.62);padding-inline-start:calc(10*var(--t));border-inline-start:var(--hair) solid rgba(214,255,240,.22)}
+[lang="en"] .logo i{font-family:'Chakra S',sans-serif;text-transform:uppercase;letter-spacing:calc(.8*var(--t));font-size:calc(9.5*var(--t))}
+
+.masthead{position:absolute;inset-inline-end:calc(11*var(--t));top:calc(12*var(--t));
+          height:calc(41*var(--t));display:flex;align-items:center}
+.navset{display:contents}
+.links{display:flex;align-items:center;gap:calc(17*var(--t));margin-inline-end:calc(16*var(--t))}
+.links a{color:#dcece6;text-decoration:none;opacity:.94;transition:opacity .25s ease,color .25s ease}
+.links a:hover{opacity:1;color:#fff}
+/* motion on/off sits in the menu with the other links */
+.motion-link{display:flex;align-items:center;gap:calc(7*var(--t));background:none;border:0;padding:0;cursor:pointer;color:#dcece6;opacity:.94;transition:opacity .25s ease,color .25s ease}
+.motion-link:hover{opacity:1;color:#fff}
+.motion-link .ico{width:calc(15*var(--t));height:calc(10*var(--t));flex:none;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;transform:scaleX(var(--flip))}
+.motion-link .wave{transition:opacity .25s ease}
+.motion-link.off .wave{opacity:0}
+.motion-link .flat{opacity:0;transition:opacity .25s ease}
+.motion-link.off .flat{opacity:1}
+
+.pill{height:calc(41*var(--t));display:flex;align-items:center;text-decoration:none;
+      position:relative;cursor:pointer;border:0;padding:0}
+.pill .ico{flex:none;display:block}
+.glass{background:rgba(240,255,250,.05);
+       -webkit-backdrop-filter:blur(calc(12*var(--t)));backdrop-filter:blur(calc(12*var(--t)));
+       transition:background .3s ease}
+.glass:hover{background:rgba(240,255,250,.085)}
+.lang{padding:0 calc(15*var(--t));margin-inline-end:calc(2*var(--t));color:rgba(255,255,255,.94)}
+.lang .t{font-family:'Chakra S','Vazirmatn',sans-serif}
+[lang="en"] .lang .t{font-family:'Vazirmatn',sans-serif;text-transform:none;letter-spacing:0;font-size:calc(11.5*var(--t))}
+.enter{padding-inline:calc(21*var(--t)) calc(19*var(--t))}
+.enter .ico{width:calc(7*var(--t));height:calc(11*var(--t));fill:#effffa;transform:scaleX(var(--flip))}
+.enter span{color:rgba(255,255,255,.94);margin-inline-start:calc(8*var(--t))}
+
+.menu{padding-inline:calc(21*var(--t)) calc(24*var(--t));background:var(--mint);
+      clip-path:polygon(calc(15*var(--t)) 0, 100% 0, 100% 100%, 0 100%, 0 calc(15*var(--t)));
+      transition:background .3s ease}
+[dir="ltr"] .menu{clip-path:polygon(0 0, calc(100% - 15*var(--t)) 0, 100% calc(15*var(--t)), 100% 100%, 0 100%)}
+.menu .ico{width:calc(10*var(--t));height:calc(10*var(--t));fill:var(--ink)}
+.menu span{color:var(--ink);margin-inline-start:calc(8*var(--t))}
+
+/* ---------- chapter index ---------- */
+.index{position:absolute;inset-inline-start:calc(10.5*var(--t));top:50%;transform:translateY(calc(-50% + 1.5*var(--t)));
+       list-style:none;margin:0;padding:0}
+.index li{height:calc(28*var(--t));display:flex;align-items:center;position:relative}
+.index a{font-weight:700;font-size:calc(11.5*var(--t));line-height:1;text-decoration:none;white-space:nowrap;
+         color:rgba(220,240,234,.34);transition:color .3s ease}
+[lang="en"] .index a{letter-spacing:calc(1.3*var(--t))}
+.index a:hover{color:#e8f6f0}
+.index .on a{color:#e8f6f0}
+.index .on::before{content:"";position:absolute;inset-inline-start:calc(-13.5*var(--t));top:50%;
+                   width:calc(6*var(--t));height:calc(7*var(--t));
+                   transform:translateY(-50%);background:#7fe3c4}
+
+/* ---------- hero ---------- */
+.hero{position:absolute;left:0;right:0;bottom:max(7.98%, calc(59*var(--t)));
+      display:flex;flex-direction:column;align-items:center;text-align:center}
+.headline{margin:0;font-weight:800;font-size:calc(31*var(--t));line-height:calc(50*var(--t));color:#fff}
+[lang="en"] .headline{font-size:calc(30*var(--t));line-height:calc(36*var(--t));letter-spacing:calc(1.2*var(--t));text-transform:uppercase}
+.blurb{margin:calc(12*var(--t)) 0 0;font-weight:400;font-size:calc(12.4*var(--t));
+       line-height:calc(23*var(--t));color:var(--muted);max-width:calc(520*var(--t))}
+[lang="en"] .blurb{margin-top:calc(15.5*var(--t));font-size:calc(11.4*var(--t));line-height:calc(19.7*var(--t))}
+.cta{margin-top:calc(23*var(--t));position:relative;min-width:calc(190*var(--t));height:calc(43*var(--t));
+     padding:0 calc(24*var(--t));display:flex;align-items:center;justify-content:center;text-decoration:none;
+     border:0;background:none;cursor:pointer}
+.cta-glass{position:absolute;inset:0;background:rgba(127,227,196,.07);
+  -webkit-backdrop-filter:blur(calc(12*var(--t)));backdrop-filter:blur(calc(12*var(--t)));
+  clip-path:polygon(calc(3*var(--t)) 0, calc(100% - 10*var(--t)) 0, 100% calc(10*var(--t)),
+                    100% calc(100% - 3*var(--t)), calc(100% - 3*var(--t)) 100%,
+                    calc(10*var(--t)) 100%, 0 calc(100% - 10*var(--t)), 0 calc(3*var(--t)));
+  transform:scaleX(var(--flip));transition:background .3s ease}
+.cta:hover .cta-glass{background:rgba(127,227,196,.14)}
+.cta-edge{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform:scaleX(var(--flip))}
+.cta-edge path{fill:none;stroke:rgba(127,227,196,.32);stroke-width:1;transition:stroke .3s ease}
+.cta:hover .cta-edge path{stroke:rgba(127,227,196,.6)}
+.cta-in{position:relative;display:flex;align-items:center}
+.cta .ico{width:calc(7*var(--t));height:calc(11*var(--t));fill:#9ff0d6;flex:none;transform:scaleX(var(--flip))}
+.cta .t{margin-inline-start:calc(8*var(--t));color:#f1fbf7}
+
+/* ---------- dock: the footer, inside the frame ---------- */
+.dock{position:absolute;left:0;right:0;bottom:0;min-height:calc(47*var(--t));
+      display:flex;justify-content:space-between;align-items:center;gap:calc(16*var(--t));
+      padding-block:calc(8*var(--t));padding-inline:calc(24*var(--t))}
+.dock .rule{position:absolute;left:0;right:0;top:0;height:var(--hair);background:var(--line)}
+.dock .q2-foot-text{margin:0;font-size:calc(10.4*var(--t));line-height:1.65;color:var(--q2-muted);min-width:0}
+.dock .q2-foot-text > span{display:inline}
+.dock .q2-foot-text > span:first-child{color:#d8ece5}
+.q2-social{display:flex;gap:calc(8*var(--t));flex:none}
+.q2-social a{display:inline-flex;align-items:center;gap:calc(7*var(--t));height:calc(30*var(--t));padding:0 calc(12*var(--t));
+  border:1px solid var(--q2-line);color:var(--q2-text);text-decoration:none;font-weight:700;font-size:calc(10.4*var(--t));
+  background:var(--q2-card);clip-path:polygon(calc(7*var(--t)) 0, 100% 0, 100% 100%, 0 100%, 0 calc(7*var(--t)));
+  transition:color .2s ease, border-color .2s ease, background .2s ease}
+[dir="ltr"] .q2-social a{clip-path:polygon(0 0, calc(100% - 7*var(--t)) 0, 100% calc(7*var(--t)), 100% 100%, 0 100%)}
+.q2-social a:hover{color:var(--q2-brand);border-color:var(--q2-brand);background:var(--q2-pick)}
+.q2-social svg{width:calc(15*var(--t));height:calc(15*var(--t));fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.refs-foot .q2-social{justify-content:center;margin-top:12px}
+.refs-foot .q2-social a{height:40px;padding:0 16px;font-size:.88rem;gap:8px}
+.refs-foot .q2-social svg{width:18px;height:18px}
+
+/* ---------- panels: the assessment and the references open over the scene ---------- */
+.panel{position:fixed;inset:0;z-index:40;overflow-y:auto;overscroll-behavior:contain;
+    background:rgba(2,11,10,.88);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+    opacity:0;visibility:hidden;transform:translateY(12px);
+    transition:opacity .4s ease, transform .4s var(--e-soft), visibility .4s}
+.panel.open{opacity:1;visibility:visible;transform:none}
+.panel-bar{position:sticky;top:0;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:12px;
+        padding-block:calc(12px + env(safe-area-inset-top, 0px)) 12px;
+        padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));
+        background:rgba(2,11,10,.76);border-bottom:1px solid var(--line);
+        -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.panel-bar h2{margin:0;font-size:1rem;font-weight:800}
+.panel-tools{display:flex;gap:8px}
+.panel-btn{display:flex;align-items:center;gap:8px;height:38px;padding:0 16px;border:1px solid var(--line);
+          background:rgba(240,255,250,.05);cursor:pointer;font-weight:700;font-size:.9rem;color:var(--text);
+          clip-path:polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 10px)}
+[dir="ltr"] .panel-btn{clip-path:polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)}
+.panel-btn:hover{background:rgba(240,255,250,.1)}
+.panel-btn svg{width:11px;height:11px;stroke:currentColor;stroke-width:1.6}
+.panel-body{padding-block:10px calc(40px + env(safe-area-inset-bottom, 0px));
+         padding-left:env(safe-area-inset-left, 0px);padding-right:env(safe-area-inset-right, 0px)}
+.qz #quiz-v2{scroll-margin-top:72px}
+.qz .q2.q2-dark{--q2-card:rgba(13,34,30,.86);--q2-soft:rgba(127,227,196,.08);--q2-line:rgba(214,255,240,.13);
+                --q2-brand:#7fe3c4;--q2-brand-2:#4fd1c5;--q2-brand-ink:#062019;--q2-pick:rgba(127,227,196,.1);--q2-ring:rgba(127,227,196,.22)}
+
+/* references */
+.refs-page{max-width:760px;margin:0 auto;padding:16px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px));line-height:1.9}
+[lang="en"] .refs-page{line-height:1.65}
+.refs-page > p{color:var(--muted);margin:6px 0 22px}
+.ref-group{margin-bottom:26px;animation:refIn .5s var(--e-soft) both;animation-delay:calc(var(--i, 0) * 60ms)}
+.ref-group h3{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:1rem;font-weight:800;color:#bff3e1}
+.ref-group h3::before{content:"";width:7px;height:7px;background:#7fe3c4;flex:none}
+.ref-group ol{margin:0;padding-inline-start:0;list-style:none;display:grid;gap:8px;counter-reset:ref var(--start, 0)}
+.ref-group li{counter-increment:ref;position:relative;padding:12px 14px;padding-inline-start:52px;border:1px solid var(--line);background:rgba(13,34,30,.6);font-size:.92rem;color:#d6ece4;overflow-wrap:anywhere}
+.ref-group li::before{content:counter(ref);position:absolute;inset-inline-start:14px;top:12px;min-width:26px;font-family:'Chakra S','Vazirmatn',sans-serif;font-weight:700;color:#7fe3c4;direction:ltr}
+.ref-group li[dir="ltr"]{text-align:left}
+.ref-group li a{display:inline-block;margin-top:4px;color:#7fe3c4;font-size:.84rem;text-underline-offset:3px;word-break:break-all}
+.ref-iran li{border-color:rgba(255,197,138,.28)}
+@keyframes refIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+
+/* ================= ENTRANCE =================
+   One sequence, once, on load. The scene is the stage and never moves.
+     DRAW    frame and dock hairlines scale from their anchor
+     MASK    wordmark and headline rise out of an overflow mask
+     DECODE  every label resolves with the site's own effect (JS)
+     SETTLE  supporting copy, pills and controls arrive on a 7-unit lift
+   The strokes leave the reading-start corner: top right in Persian, top left in English. */
+:root{
+  --e-mask: cubic-bezier(.16,1,.3,1);
+  --e-line: cubic-bezier(.65,0,.35,1);
+  --e-soft: cubic-bezier(.22,.61,.36,1);
+}
+@keyframes drawX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes drawY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes maskUp{from{transform:translateY(112%)}to{transform:translateY(0)}}
+@keyframes settle{from{opacity:0;transform:translateY(calc(7*var(--t)))}to{opacity:1;transform:none}}
+@keyframes markIn{from{transform:translateY(-50%) scaleX(0)}to{transform:translateY(-50%) scaleX(1)}}
+@keyframes settleC{from{opacity:0;transform:translate(-50%,calc(7*var(--t)))}to{opacity:1;transform:translateX(-50%)}}
+
+.anim[dir="rtl"] .ln-t{transform-origin:right center;animation:drawX .5s var(--e-line) .04s both}
+.anim[dir="rtl"] .ln-r{transform-origin:center top;animation:drawY .5s var(--e-line) .04s both}
+.anim[dir="rtl"] .ln-b{transform-origin:left center;animation:drawX .5s var(--e-line) .2s both}
+.anim[dir="rtl"] .ln-l{transform-origin:center bottom;animation:drawY .5s var(--e-line) .2s both}
+.anim[dir="ltr"] .ln-t{transform-origin:left center;animation:drawX .5s var(--e-line) .04s both}
+.anim[dir="ltr"] .ln-l{transform-origin:center top;animation:drawY .5s var(--e-line) .04s both}
+.anim[dir="ltr"] .ln-b{transform-origin:right center;animation:drawX .5s var(--e-line) .2s both}
+.anim[dir="ltr"] .ln-r{transform-origin:center bottom;animation:drawY .5s var(--e-line) .2s both}
+.anim .cn{animation:fadeIn .3s linear .55s both}
+
+.anim .logo{overflow:hidden}
+.anim .logo-in{animation:maskUp .8s var(--e-mask) .16s both}
+
+.anim .lang{animation:settle .56s var(--e-soft) .27s both}
+.anim .enter{animation:settle .56s var(--e-soft) .3s both}
+.anim .menu{animation:settle .56s var(--e-soft) .36s both}
+.anim .links{animation:fadeIn .4s linear .34s both}
+
+.headline .hrow{display:block;overflow:hidden}
+.headline .hrise{display:block}
+.anim .headline .hrise{animation:maskUp .9s var(--e-mask) both}
+.anim .headline .hrow:first-child .hrise{animation-delay:.42s}
+.anim .headline .hrow+.hrow .hrise{animation-delay:.52s}
+
+.anim .index{animation:fadeIn .45s linear .6s both}
+.anim .index .on::before{animation:markIn .42s var(--e-soft) .64s both}
+
+.anim .blurb{animation:settle .72s var(--e-soft) .7s both}
+.anim .cta{animation:settle .62s var(--e-soft) .86s both}
+
+.anim[dir="rtl"] .dock .rule{transform-origin:right center;animation:drawX .52s var(--e-line) .92s both}
+.anim[dir="ltr"] .dock .rule{transform-origin:left center;animation:drawX .52s var(--e-line) .92s both}
+.anim .dock .q2-foot-text{animation:settle .52s var(--e-soft) .96s both}
+.anim .dock .q2-social{animation:settle .52s var(--e-soft) 1.06s both}
+
+/* ---------- a11y ---------- */
+a:focus-visible,button:focus-visible{outline:calc(1.5*var(--t)) solid #7fe3c4;outline-offset:calc(3*var(--t))}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- tablet ---------- */
+@media (max-width: 1152px){
+  :root{
+    --u: clamp(.8px, min(100vw / 1280, 100vh / 800), 1.1px);
+    --u: clamp(.8px, min(100vw / 1280, 100dvh / 800), 1.1px);
+    --t: max(var(--u), clamp(.9px, calc(.9px + (1152px - 100vw) * .00042), 1.12px));
+  }
+  .links{gap:calc(19*var(--t));align-self:stretch}
+  .links a{display:flex;align-items:center;align-self:stretch}
+  .index a{padding:calc(7*var(--t)) 0}
+}
+@media (max-width: 1152px) and (min-aspect-ratio: 6/5){
+  .hero{padding-inline:calc(150*var(--t))}
+}
+@media (max-width: 1152px) and (max-aspect-ratio: 6/5){
+  .index{top:32%}
+  .hero{padding-inline:calc(22*var(--t))}
+}
+
+/* ---------- navigation collapse ---------- */
+@media (max-width: 830px){
+  .navset{
+    display:flex;flex-direction:column;align-items:stretch;
+    position:absolute;top:calc(52*var(--t));inset-inline-end:0;min-width:calc(196*var(--t));
+    padding:calc(16*var(--t)) calc(20*var(--t)) calc(18*var(--t));
+    gap:calc(4*var(--t));
+    background:rgba(6,20,18,.8);
+    -webkit-backdrop-filter:blur(calc(16*var(--t)));backdrop-filter:blur(calc(16*var(--t)));
+    clip-path:polygon(calc(15*var(--t)) 0, 100% 0, 100% calc(100% - 15*var(--t)),
+                      calc(100% - 15*var(--t)) 100%, 0 100%, 0 calc(15*var(--t)));
+    opacity:0;visibility:hidden;transform:translateY(calc(-6*var(--t)));
+    transition:opacity .34s ease, transform .34s cubic-bezier(.22,.61,.36,1), visibility .34s;
+    z-index:6;
+  }
+  [dir="ltr"] .navset{clip-path:polygon(0 0, calc(100% - 15*var(--t)) 0, 100% calc(15*var(--t)), 100% 100%,
+                      calc(15*var(--t)) 100%, 0 calc(100% - 15*var(--t)))}
+  .nav-open .navset{opacity:1;visibility:visible;transform:none}
+  .links{flex-direction:column;align-items:stretch;gap:0;margin-inline-end:0;align-self:auto}
+  .links a,.links .motion-link{padding:calc(10*var(--t)) 0;justify-content:flex-start}
+  .navset .pill{width:auto;align-self:stretch;justify-content:flex-start;
+    margin-top:calc(8*var(--t));height:calc(40*var(--t));
+    padding:0 calc(16*var(--t));background:rgba(240,255,250,.07)}
+  .navset .lang{margin-inline-end:0}
+}
+
+/* ---------- mobile ---------- */
+@media (max-width: 548px){
+  :root{
+    --u: clamp(.62px, min(100vw / 500, 100vh / 820), 1.1px);
+    --u: clamp(.62px, min(100vw / 500, 100dvh / 820), 1.1px);
+    --t: clamp(1.06px, calc(100vw / 489), 1.12px);
+  }
+  .frame{left:calc(22*var(--u));right:calc(22*var(--u));
+         top:calc(22*var(--u));bottom:calc(22*var(--u))}
+  .logo{inset-inline-start:calc(16*var(--t));top:calc(19*var(--t))}
+  .logo i{display:none}
+  .masthead{inset-inline-end:calc(9*var(--t));top:calc(12*var(--t))}
+  .index{top:calc(70*var(--t));transform:none}
+  .index li{height:calc(26*var(--t))}
+  .index a{color:rgba(220,240,234,.46)}
+  .hero{bottom:calc(var(--dockh, 120px) + 14px);padding-inline:calc(18*var(--t))}
+  .headline{text-wrap:balance;font-size:calc(26*var(--t));line-height:calc(42*var(--t))}
+  [lang="en"] .headline{font-size:calc(24*var(--t));line-height:calc(30*var(--t))}
+  .blurb{max-width:calc(400*var(--t))}
+  .blurb br{display:none}
+  .headline .hrow{display:inline;overflow:visible}
+  .headline .hrise{display:inline}
+  .anim .headline .hrise{animation:none}
+  .anim .headline{animation:settle .8s var(--e-mask) .42s both}
+  .hero .headline{transition:opacity .4s ease}
+  .swapping .headline{opacity:0}
+  /* the footer stacks: the advice, then the two buttons */
+  .dock{flex-direction:column;justify-content:center;text-align:center;gap:calc(8*var(--t));padding-inline:calc(14*var(--t));padding-block:calc(10*var(--t))}
+  .dock .q2-foot-text{font-size:10.5px}
+  .dock .q2-foot-text > span{display:block}
+  .q2-social a{height:32px;font-size:11px}
+}
+@media (max-height: 560px),
+       (max-width: 370px) and (max-height: 700px){ .blurb{display:none} }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="bg" role="img" data-i18n-aria="sceneAria" aria-label="مولکول پپتید GLP-1 به شکل مارپیچ نورانی، بالای آبی آرام در شب">
+    <canvas id="scene" aria-hidden="true"></canvas>
+  </div>
+  <div class="shade"></div>
+
+  <div class="frame">
+    <span class="ln ln-t"></span><span class="ln ln-b"></span>
+    <span class="ln ln-l"></span><span class="ln ln-r"></span>
+    <span class="cn cn-tl"></span><span class="cn cn-tr"></span>
+    <span class="cn cn-bl"></span><span class="cn cn-br"></span>
+
+    <a class="logo" href="#" data-i18n-aria="logoAria" aria-label="TidePath، صفحه اصلی">
+      <span class="logo-in"><b>TIDE<span>PATH</span></b><i data-i18n="logoSub">غربالگری و انتخاب مسیر</i></span>
+    </a>
+
+    <nav class="masthead" data-i18n-aria="navAria" aria-label="اصلی">
+      <div class="navset" id="navset">
+      <div class="links lbl">
+        <a href="#mechanism" data-ch="mechanism"><span class="t" data-k="ch_mechanism">سازوکار</span></a><a href="#eligibility" data-ch="eligibility"><span class="t" data-k="ch_eligibility">معیارها</span></a><a href="#safety" data-ch="safety"><span class="t" data-k="ch_safety">ایمنی</span></a><a href="#nutrition" data-ch="nutrition"><span class="t" data-k="ch_nutrition">تغذیه</span></a><a href="#references" data-open="references"><span class="t" data-k="refs">منابع</span></a><button class="motion-link" type="button" aria-pressed="true"><svg class="ico" viewBox="0 0 16 11" aria-hidden="true"><path class="wave" d="M.8 5.5 H4 L5.6 1.6 L7.9 9.4 L9.7 3.4 L10.9 5.5 H15.2"/><path class="flat" d="M.8 5.5 H15.2"/></svg><span class="t" data-k="motionOn">حرکت روشن</span></button>
+      </div>
+      <button class="pill glass lang lbl" type="button" data-i18n-aria="langAria" aria-label="English"><span class="t" data-k="langBtn">EN</span></button>
+      <a class="pill glass enter lbl" href="#assessment" data-open="assessment">
+        <svg class="ico" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="4" height="5"/><rect x="3" y="4" width="4" height="4"/><rect x="0" y="7" width="4" height="4"/></svg>
+        <span class="t" data-k="enter">ارزیابی</span>
+      </a>
+      </div>
+      <button class="pill menu lbl" type="button" aria-expanded="false" aria-controls="navset">
+        <svg class="ico" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="4" height="4" rx=".8"/><rect x="6" y="0" width="4" height="4" rx=".8"/><rect x="0" y="6" width="4" height="4" rx=".8"/><rect x="6" y="6" width="4" height="4" rx=".8"/></svg>
+        <span class="t" data-k="menu">منو</span>
+      </button>
+    </nav>
+
+    <ul class="index" data-i18n-aria="chaptersAria" aria-label="فصل‌ها">
+      <li class="on"><a href="#mechanism" aria-current="true"><span class="t" data-k="ch_mechanism">سازوکار</span></a></li>
+      <li><a href="#eligibility"><span class="t" data-k="ch_eligibility">معیارها</span></a></li>
+      <li><a href="#safety"><span class="t" data-k="ch_safety">ایمنی</span></a></li>
+      <li><a href="#nutrition"><span class="t" data-k="ch_nutrition">تغذیه</span></a></li>
+      <li><a href="#muscle"><span class="t" data-k="ch_muscle">عضله</span></a></li>
+      <li><a href="#maintenance"><span class="t" data-k="ch_maintenance">پایداری</span></a></li>
+    </ul>
+
+    <div class="hero">
+      <h1 class="headline"><span class="hrow"><span class="hrise">سیری، پیامی است </span></span><span class="hrow"><span class="hrise">که از روده به مغز می‌رسد</span></span></h1>
+      <p class="blurb">روده پس از هر غذا هورمونی به نام GLP-1 می‌سازد که به مغز خبر سیری می‌دهد<br>
+        و تخلیه معده را آهسته می‌کند. داروهای این گروه، مثل سماگلوتاید و تیرزپاتاید،<br>
+        همین پیام را قوی‌تر و طولانی‌تر می‌کنند؛ زودتر سیر می‌شوید و کمتر به غذا فکر می‌کنید.</p>
+      <button class="cta lbl" type="button" data-open="assessment">
+        <span class="cta-glass"></span>
+        <svg class="cta-edge" viewBox="0 0 190 41" preserveAspectRatio="none" aria-hidden="true"><path d="M3.5.5 H179.5 L189.5 10.5 V37.5 L186.5 40.5 H10.5 L.5 30.5 V3.5 Z" vector-effect="non-scaling-stroke"/></svg>
+        <span class="cta-in">
+          <svg class="ico" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="4" height="5"/><rect x="3" y="4" width="4" height="4"/><rect x="0" y="7" width="4" height="4"/></svg>
+          <span class="t" data-k="cta">شروع ارزیابی</span>
+        </span>
+      </button>
+    </div>
+
+    <footer class="dock site-foot" data-foot><span class="rule"></span></footer>
+  </div>
+</div>
+
+<section class="panel qz" id="assessment" data-i18n-aria="quizTitle" aria-label="ارزیابی TidePath" aria-hidden="true">
+  <div class="panel-bar">
+    <h2 data-i18n="quizTitle">ارزیابی TidePath</h2>
+    <div class="panel-tools">
+      <button class="panel-btn lang-mini" type="button" data-i18n="langBtn" data-i18n-aria="langAria" aria-label="English">EN</button>
+      <button class="panel-btn" type="button" data-close><svg viewBox="0 0 11 11" aria-hidden="true"><path d="M1 1 L10 10 M10 1 L1 10"/></svg><span data-i18n="close">بستن</span></button>
+    </div>
+  </div>
+  <div class="panel-body"><div id="quiz-v2"></div></div>
+</section>
+
+<section class="panel" id="references" data-i18n-aria="refsTitle" aria-label="منابع علمی" aria-hidden="true">
+  <div class="panel-bar">
+    <h2 data-i18n="refsTitle">منابع علمی</h2>
+    <div class="panel-tools">
+      <button class="panel-btn lang-mini" type="button" data-i18n="langBtn" data-i18n-aria="langAria" aria-label="English">EN</button>
+      <button class="panel-btn" type="button" data-close><svg viewBox="0 0 11 11" aria-hidden="true"><path d="M1 1 L10 10 M10 1 L1 10"/></svg><span data-i18n="close">بستن</span></button>
+    </div>
+  </div>
+  <div class="panel-body"><div class="refs-page"><p data-i18n="refsIntro"></p><div id="ref-list"></div><div class="refs-foot site-foot" data-foot></div></div></div>
+</section>
+
+<script src="assets/js/glp1-engine.js"></script>
+<script src="assets/js/wizard-v2.js"></script>
+<script>
+(function(){
+  "use strict";
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  var CHARS = { fa: 'ابپتثجچحخدذرزسشصطعغفقکگلمنوهی', en: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' };
+  var DUR = 400;   /* every label resolves in the same time, whatever its length */
+
+  /* ارزیابی: روی هاست PHP، mock را false کنید تا پاسخ‌ها به api/evaluate.php برود. */
+  var QUIZ = {
+    quizUrl: 'data/quiz-v2.json', lessonsUrl: 'data/lessons.json',
+    endpoint: 'api/evaluate.php', resultEndpoint: 'api/result.php',
+    mock: true, dark: true
+  };
+
+  /* ---------------------------------------------------------------
+     0. WORDS — every visible string, in Persian and English
+  ---------------------------------------------------------------- */
+  var WORDS = {
+    fa: {
+      title: 'TidePath — غربالگری داروهای GLP-1 و انتخاب بهترین مسیر',
+      description: 'ارزیابی برای این‌که بدانید داروهای GLP-1 مثل سماگلوتاید و تیرزپاتاید برای شما مناسب‌اند یا نه؛ جایگزین نظر پزشک و متخصص تغذیه بالینی نیست.',
+      sceneAria: 'مولکول پپتید GLP-1 به شکل مارپیچ نورانی، بالای آبی آرام در شب', logoAria: 'TidePath، صفحه اصلی', logoSub: 'غربالگری و انتخاب مسیر',
+      navAria: 'اصلی', chaptersAria: 'فصل‌ها', langBtn: 'EN', langAria: 'English',
+      ch_mechanism: 'سازوکار', ch_eligibility: 'معیارها', ch_safety: 'ایمنی', ch_nutrition: 'تغذیه', ch_muscle: 'عضله', ch_maintenance: 'پایداری',
+      enter: 'ارزیابی', menu: 'منو', close: 'بستن', cta: 'شروع ارزیابی', motionOn: 'حرکت روشن', motionOff: 'حرکت خاموش',
+      refs: 'منابع', quizTitle: 'ارزیابی TidePath', refsTitle: 'منابع علمی',
+      refsIntro: 'پرسش‌ها، قاعده‌ها و درسنامه‌های این ارزیابی بر پایه این منابع نوشته شده‌اند. این فهرست برای مطالعه بیشتر است و جایگزین نظر پزشک و متخصص تغذیه بالینی نیست.',
+      refsLink: 'مشاهده منبع', refsError: 'فهرست منابع بارگذاری نشد؛ دوباره امتحان کنید.'
+    },
+    en: {
+      title: 'TidePath — GLP-1 medicine screening and the right path for you',
+      description: 'An assessment to see whether GLP-1 medicines such as semaglutide and tirzepatide may suit you. It does not replace a physician or clinical nutrition specialist.',
+      sceneAria: 'The GLP-1 peptide as a glowing helix above still water at night', logoAria: 'TidePath, home', logoSub: 'Screen · choose your path',
+      navAria: 'Main', chaptersAria: 'Chapters', langBtn: 'فا', langAria: 'فارسی',
+      ch_mechanism: 'Mechanism', ch_eligibility: 'Criteria', ch_safety: 'Safety', ch_nutrition: 'Nutrition', ch_muscle: 'Muscle', ch_maintenance: 'Maintenance',
+      enter: 'Assess', menu: 'Menu', close: 'Close', cta: 'Start the assessment', motionOn: 'Motion on', motionOff: 'Motion off',
+      refs: 'References', quizTitle: 'TidePath assessment', refsTitle: 'Scientific references',
+      refsIntro: 'The questions, rules and lessons in this assessment are based on these sources. The list is for further reading and does not replace a physician or clinical nutrition specialist.',
+      refsLink: 'View source', refsError: 'The reference list could not load; please try again.'
+    }
+  };
+  var COPY = {
+    fa: {
+      mechanism: [['سیری، پیامی است ', 'که از روده به مغز می‌رسد'],
+        ['روده پس از هر غذا هورمونی به نام GLP-1 می‌سازد که به مغز خبر سیری می‌دهد',
+         'و تخلیه معده را آهسته می‌کند. داروهای این گروه، مثل سماگلوتاید و تیرزپاتاید،',
+         'همین پیام را قوی‌تر و طولانی‌تر می‌کنند؛ زودتر سیر می‌شوید و کمتر به غذا فکر می‌کنید.']],
+      eligibility: [['این دارو برای ', 'هر کسی نوشته نشده است'],
+        ['معیار رسمی تجویز، BMI سی یا بیشتر است، یا بیست‌وهفت به بالا همراه با فشار خون،',
+         'دیابت یا پیش‌دیابت، چربی خون، کبد چرب یا آپنه خواب. برای چند کیلو با هدف',
+         'زیبایی، عوارض این داروها می‌تواند از فایده‌شان بیشتر باشد.']],
+      safety: [['ایمنی، پیش از ', 'هر عدد روی ترازو'],
+        ['بارداری و شیردهی، سابقه سرطان مدولاری تیروئید یا MEN 2 و مصرف هم‌زمان دو داروی',
+         'این گروه، منع مصرف‌اند. ارزیابی با دیدن هر کدام همان‌جا متوقف می‌شود',
+         'و دلیلش را روشن به شما می‌گوید.']],
+      nutrition: [['وقتی اشتها کم می‌شود، ', 'پروتئین مهم‌تر می‌شود'],
+        ['کم‌خوری بی‌برنامه، عضله را زودتر از چربی می‌برد. پروتئین کافی در هر وعده، با مقداری',
+         'که متخصص تغذیه بالینی برایتان تعیین می‌کند، آب کافی و وعده‌های کوچک و منظم،',
+         'پایه هر برنامه‌ای است که با این داروها همراه می‌شود.']],
+      muscle: [['عضله‌ای که می‌سازید، ', 'وزنی که می‌ماند'],
+        ['تمرین مقاومتی دو تا سه بار در هفته، با وزنه، کش یا وزن بدن، مهم‌ترین محافظ عضله',
+         'هنگام کاهش وزن است. کاهش بیش از ۱٫۵ درصد وزن در هفته را با متخصص بررسی کنید؛',
+         'معمولاً نشانه کم‌خوری و از دست رفتن عضله است.']],
+      maintenance: [['درمان کوتاه نیست، ', 'برنامه هم باید بلند باشد'],
+        ['با قطع دارو اشتها برمی‌گردد و بیشتر افراد بخشی از وزن را دوباره به دست می‌آورند.',
+         'پیش از شروع، برای هزینه دست‌کم یک سال برنامه بریزید و عادت‌های غذایی و تمرینی را',
+         'از همان ماه اول بسازید. کم کردن یا قطع دارو تدریجی و با نظر پزشک است.']]
+    },
+    en: {
+      mechanism: [['Fullness is a message ', 'from the gut to the brain'],
+        ['After every meal the gut makes a hormone called GLP-1 that tells the brain you are full',
+         'and slows the emptying of the stomach. Medicines in this group, such as semaglutide',
+         'and tirzepatide, make that message stronger and longer: you feel full sooner and think',
+         'about food less.']],
+      eligibility: [['Not written ', 'for everyone'],
+        ['The official criteria are a BMI of 30 or more, or 27 or more with high blood pressure,',
+         'diabetes or prediabetes, high lipids, fatty liver or sleep apnea. For a few kilos',
+         'lost for appearance, the side effects can outweigh the benefits.']],
+      safety: [['Safety before ', 'any number on the scale'],
+        ['Pregnancy and breastfeeding, a history of medullary thyroid cancer or MEN 2, and',
+         'taking two medicines from this group at once are contraindications. The assessment',
+         'stops as soon as it sees one and explains the reason clearly.']],
+      nutrition: [['When appetite drops, ', 'protein matters more'],
+        ['Eating less without a plan takes muscle before fat. Enough protein at every meal,',
+         'in the amount your clinical dietitian sets, enough water and small regular meals',
+         'are the base of any plan that goes with these medicines.']],
+      muscle: [['The muscle you build ', 'is the weight you keep'],
+        ['Strength training two to three times a week, with weights, bands or body weight,',
+         'is the best protection for muscle while losing weight. Discuss losing more than 1.5%',
+         'of your weight a week with a professional; it usually means you are eating too little.']],
+      maintenance: [['Treatment is not short, ', 'so the plan should be long'],
+        ['When the medicine stops, appetite returns and most people regain part of the weight.',
+         'Before starting, plan the cost for at least a year and build eating and exercise habits',
+         'from the first month. Reducing or stopping the medicine is gradual, with your doctor.']]
+    }
+  };
+  var lang = root.lang === 'en' ? 'en' : 'fa';
+  function w(k){ return WORDS[lang][k]; }
+
+  /* ---------------------------------------------------------------
+     1. DECODE LABELS
+  ---------------------------------------------------------------- */
+  var labels = [].slice.call(document.querySelectorAll('.t'));
+  labels.forEach(function(el){ el.dataset.text = el.textContent; });
+
+  function reserve(){
+    var widths = [];
+    labels.forEach(function(el){ el.style.width = ''; });
+    labels.forEach(function(el){ widths.push(el.getBoundingClientRect().width); });
+    labels.forEach(function(el,i){ el.style.width = (Math.ceil(widths[i]*100)/100) + 'px'; });
+  }
+  function settle(el){
+    if (el._raf){ cancelAnimationFrame(el._raf); el._raf = 0; }
+    if (el._t){ clearTimeout(el._t); el._t = 0; }
+    el.textContent = el.dataset.text;
+  }
+  function decode(el, dur){
+    var text = el.dataset.text, n = text.length, CH = CHARS[lang];
+    if (RM){ settle(el); return; }
+    settle(el);
+    var D = dur || DUR;
+    var t0 = performance.now(), lastRoll = 0;
+    var rand = new Array(n);
+    function roll(){ for (var i=0;i<n;i++) rand[i] = CH.charAt((Math.random()*CH.length)|0); }
+    roll();
+    function step(now){
+      var p = Math.min(1, (now - t0) / D), front = p * n, out = '', i;
+      if (now - lastRoll > 45){ roll(); lastRoll = now; }
+      for (i = 0; i < n; i++){
+        var c = text.charAt(i);
+        if (i < front) out += c;
+        else if (i < front + 3.6) out += (c === ' ' || c === '‌' ? c : rand[i]);
+        else break;
+      }
+      el.textContent = out;
+      if (p < 1) el._raf = requestAnimationFrame(step); else settle(el);
+    }
+    el._raf = requestAnimationFrame(step);
+    el._t = setTimeout(function(){ settle(el); }, D + 500);
+  }
+  [].forEach.call(document.querySelectorAll('a, button'), function(el){
+    var t = el.querySelector('.t');
+    if (!t) return;
+    el.addEventListener('pointerenter', function(){ decode(t); });
+  });
+
+  /* ---------------------------------------------------------------
+     2. SCENE
+     The GLP-1(7–37) peptide, residue by residue, as an alpha helix with
+     the kink at Gly22 and the fatty-acid chain that semaglutide carries
+     on Lys26. It stands over still water and is mirrored in it. Each
+     chapter is a camera move around the same molecule.
+  ---------------------------------------------------------------- */
+  var Scene = (function(){
+    var cv = document.getElementById('scene');
+    var ctx = cv.getContext('2d');
+    var rc = document.createElement('canvas'), rctx = rc.getContext('2d');
+    var W = 0, H = 0, DPR = 1;
+
+    var SEQ = 'HAEGTFTSDVSSYLEGQAAKEFIAWLVKGRG';
+    var KIND = {H:'b',K:'b',R:'b',E:'a',D:'a',A:'h',V:'h',L:'h',I:'h',F:'h',W:'h',Y:'h',G:'p',T:'p',S:'p',Q:'p',N:'p'};
+    var SIZE = {G:.55,A:.7,S:.75,T:.85,V:.9,D:.9,E:1,Q:1,H:1.05,K:1.1,R:1.2,L:1,I:1,F:1.2,Y:1.25,W:1.35};
+    var COL = {h:[244,196,126], p:[178,236,218], a:[255,150,138], b:[146,196,255], bb:[226,242,238], fa:[250,224,170]};
+
+    var atoms = [], bonds = [];
+    (function build(){
+      var prevCa = -1;
+      for (var i = 0; i < SEQ.length; i++){
+        var a = i * 100 * Math.PI / 180, r = 3.1, y = 54 - i * 1.5;
+        if (i < 4){ r += (4 - i) * 0.7; }                 /* the N-terminus is looser than the helix */
+        var k = i > 15 ? (i - 15) * 0.34 : 0;             /* kink at Gly22 */
+        var cx = Math.cos(a) * r + k, cz = Math.sin(a) * r;
+        var ca = atoms.length;
+        atoms.push({x:cx, y:y, z:cz, r:1.3, c:COL.bb, letter:SEQ[i], ph:Math.random()*6.28});
+        var sr = r + 2.7, kind = KIND[SEQ[i]];
+        atoms.push({x:Math.cos(a)*sr + k, y:y - .5, z:Math.sin(a)*sr, r:1.08 * SIZE[SEQ[i]], c:COL[kind], ph:Math.random()*6.28, glow:1});
+        bonds.push([ca, ca + 1]);
+        if (prevCa >= 0) bonds.push([prevCa, ca]);
+        prevCa = ca;
+        if (i === 19){                                     /* Lys26: albumin-binding fatty-acid chain */
+          var last = ca + 1, ox = Math.cos(a), oz = Math.sin(a);
+          for (var j = 1; j <= 9; j++){
+            var d = sr + j * 1.25;
+            atoms.push({x:ox*d + k + Math.sin(j*.9)*.5, y:y - .5 + Math.sin(j*.7)*.9 + j*.18, z:oz*d + Math.cos(j*.9)*.5,
+                        r:.42, c:COL.fa, ph:Math.random()*6.28});
+            bonds.push([last, atoms.length - 1]);
+            last = atoms.length - 1;
+          }
+        }
+      }
+    })();
+
+    var parts = [];
+    for (var p = 0; p < 90; p++) parts.push({x:(Math.random()*2-1)*70, y:2 + Math.random()*80, z:(Math.random()*2-1)*70, v:.25 + Math.random()*.6, ph:Math.random()*6.28});
+    var streaks = [];
+    for (var s = 0; s < 54; s++) streaks.push({u:Math.random(), x:(Math.random()*2-1), len:.3 + Math.random()*.9, ph:Math.random()*6.28});
+
+    /* camera poses per chapter: yaw and pitch in radians, distance in Ångström-ish units */
+    var POSE = {
+      mechanism:   function(t){ return {yaw:.45 + t*.07, pitch:-.13, dist:116}; },
+      eligibility: function(t){ return {yaw:.45 + t*.3, pitch:-.1 + .04*Math.sin(t*.5), dist:110}; },
+      safety:      function(t){ var s = .5 - .5*Math.cos(t*.42); return {yaw:.45 + t*.42, pitch:-.12 + .62*s, dist:118 + 22*s}; },
+      nutrition:   function(t){ var s = .5 - .5*Math.cos(t*.33); return {yaw:.9 + t*.05, pitch:-.12 + 1.05*s, dist:112 + 60*s}; },
+      muscle:      function(t){ return {yaw:.2 + .03*Math.sin(t*.3), pitch:-.12, dist:104}; },
+      maintenance: function(t){ var s = .5 - .5*Math.cos(t*.38); return {yaw:.45 - 1*s, pitch:-.12 + .55*s, dist:114 + 70*s}; }
+    };
+    var TINT = {
+      mechanism:[120,232,200], eligibility:[132,190,255], safety:[255,160,130],
+      nutrition:[246,192,112], muscle:[240,146,176], maintenance:[112,222,190]
+    };
+    var FLICK = {muscle:.35};
+
+    var chap = 'mechanism', from = null, tStart = performance.now(), last = tStart, clock = 0;
+    var cur = {yaw:.45, pitch:-.13, dist:116, tint:TINT.mechanism.slice(), flick:0};
+    var running = false, frozen = RM, paused = false;
+
+    function resize(){
+      var b = cv.getBoundingClientRect();
+      W = Math.max(1, b.width); H = Math.max(1, b.height);
+      DPR = Math.min(window.devicePixelRatio || 1, W < 700 ? 1.5 : 1.75);
+      cv.width = rc.width = Math.round(W * DPR);
+      cv.height = rc.height = Math.round(H * DPR);
+      draw();
+    }
+
+    function wrapPi(a){ a = (a + Math.PI) % (Math.PI*2); if (a < 0) a += Math.PI*2; return a - Math.PI; }
+    function ease(x){ return x < .5 ? 4*x*x*x : 1 - Math.pow(-2*x + 2, 3)/2; }
+    function rgba(c, a){ return 'rgba(' + (c[0]|0) + ',' + (c[1]|0) + ',' + (c[2]|0) + ',' + a.toFixed(3) + ')'; }
+    function mix(a, b, k){ return [a[0] + (b[0]-a[0])*k, a[1] + (b[1]-a[1])*k, a[2] + (b[2]-a[2])*k]; }
+
+    function camera(pose){
+      var T = {x:.8, y:31, z:0};
+      var cp = Math.cos(pose.pitch);
+      var px = T.x + pose.dist*cp*Math.sin(pose.yaw), py = T.y + pose.dist*Math.sin(pose.pitch), pz = T.z + pose.dist*cp*Math.cos(pose.yaw);
+      var fx = T.x - px, fy = T.y - py, fz = T.z - pz, fl = Math.hypot(fx, fy, fz);
+      fx /= fl; fy /= fl; fz /= fl;
+      var rx = -fz, rz = fx, rl = Math.hypot(rx, rz); rx /= rl; rz /= rl;
+      var ux = -rz*fy, uy = rz*fx - rx*fz, uz = rx*fy;
+      var portrait = W / H < .8;
+      var f = portrait ? Math.min(H * .78, W * 1.6) : Math.min(H, W * 2.2);
+      return {px:px, py:py, pz:pz, fx:fx, fy:fy, fz:fz, rx:rx, rz:rz, ux:ux, uy:uy, uz:uz, f:f, cx:W/2, cy:H*(portrait ? .31 : .37)};
+    }
+    function proj(c, x, y, z, o){
+      var dx = x - c.px, dy = y - c.py, dz = z - c.pz;
+      var X = dx*c.rx + dz*c.rz, Y = dx*c.ux + dy*c.uy + dz*c.uz, Z = dx*c.fx + dy*c.fy + dz*c.fz;
+      if (Z < 2) Z = 2;
+      var k = c.f / Z;
+      o.x = c.cx + X*k; o.y = c.cy - Y*k; o.s = k; o.z = Z;
+      return o;
+    }
+
+    var P = atoms.map(function(){ return {}; }), R = atoms.map(function(){ return {}; });
+    var PP = parts.map(function(){ return {}; });
+
+    function scene(g, c, t, mirror, out, glowOn){
+      var sign = mirror ? -1 : 1, i, items = [], zmin = 1e9, zmax = -1e9;
+      for (i = 0; i < atoms.length; i++){
+        var a = atoms[i], o = proj(c, a.x, a.y*sign, a.z, out[i]);
+        if (o.z < zmin) zmin = o.z; if (o.z > zmax) zmax = o.z;
+        items.push({k:0, i:i, z:o.z});
+      }
+      for (i = 0; i < bonds.length; i++){
+        var b = bonds[i];
+        items.push({k:1, i:i, z:Math.max(out[b[0]].z, out[b[1]].z) + .01});
+      }
+      if (!mirror) for (i = 0; i < parts.length; i++){
+        var q = parts[i], qy = 2 + ((q.y - 2 + clock*q.v) % 80);
+        var po = proj(c, q.x + Math.sin(clock*.2 + q.ph)*2, qy, q.z, PP[i]);
+        items.push({k:2, i:i, z:po.z});
+      }
+      items.sort(function(m, n){ return n.z - m.z; });
+      var span = Math.max(1, zmax - zmin), breath = .86 + .14*Math.sin(t*.8);
+      g.lineCap = 'round';
+      for (var n = 0; n < items.length; n++){
+        var it = items[n];
+        if (it.k === 1){
+          var p1 = out[bonds[it.i][0]], p2 = out[bonds[it.i][1]];
+          var fog = Math.min(1, Math.max(0, (it.z - zmin) / span));
+          g.strokeStyle = rgba([200,236,226], .34*(1 - fog*.55));
+          g.lineWidth = Math.max(.6, .36*(p1.s + p2.s)/2);
+          g.beginPath(); g.moveTo(p1.x, p1.y); g.lineTo(p2.x, p2.y); g.stroke();
+        } else if (it.k === 0){
+          var a2 = atoms[it.i], o2 = out[it.i];
+          var fog2 = Math.min(1, Math.max(0, (it.z - zmin) / span)), dim = 1 - fog2*.5;
+          var fl = 1 + cur.flick*Math.sin(t*3.1 + a2.ph)*.5;
+          var col = mix(a2.c, [8,30,28], fog2*.45), rs = Math.max(.8, a2.r * o2.s);
+          if (glowOn && a2.glow){
+            g.globalCompositeOperation = 'lighter';
+            var hg = g.createRadialGradient(o2.x, o2.y, 0, o2.x, o2.y, rs*3);
+            hg.addColorStop(0, rgba(mix(a2.c, cur.tint, .35), .2*dim*breath*fl));
+            hg.addColorStop(1, rgba(a2.c, 0));
+            g.fillStyle = hg; g.beginPath(); g.arc(o2.x, o2.y, rs*3, 0, 6.2832); g.fill();
+            g.globalCompositeOperation = 'source-over';
+          }
+          var sg = g.createRadialGradient(o2.x - rs*.36, o2.y - rs*.4, rs*.08, o2.x, o2.y, rs);
+          sg.addColorStop(0, rgba(mix(col, [255,255,255], .62), dim));
+          sg.addColorStop(.55, rgba(col, dim));
+          sg.addColorStop(1, rgba(mix(col, [2,10,9], .62), dim));
+          g.fillStyle = sg; g.beginPath(); g.arc(o2.x, o2.y, rs, 0, 6.2832); g.fill();
+          if (!mirror && a2.letter && rs > 6.5){
+            g.fillStyle = rgba([6,28,24], .6*dim);
+            g.font = '700 ' + (rs*.95).toFixed(1) + 'px "Chakra S", sans-serif';
+            g.textAlign = 'center'; g.textBaseline = 'middle';
+            g.fillText(a2.letter, o2.x, o2.y + rs*.06);
+          }
+        } else {
+          var pp = PP[it.i], pr = Math.min(2.4, Math.max(.5, .22*pp.s));
+          var tw = .5 + .5*Math.sin(clock*1.3 + parts[it.i].ph);
+          g.fillStyle = rgba(mix([210,250,238], cur.tint, .4), (.12 + .22*tw) * Math.min(1, pp.s*.9));
+          g.beginPath(); g.arc(pp.x, pp.y, pr, 0, 6.2832); g.fill();
+        }
+      }
+    }
+
+    function draw(){
+      if (!W) return;
+      var now = performance.now();
+      var t = frozen ? 0 : (now - tStart) / 1000;
+      var target = POSE[chap](t), k = from && !frozen ? ease(Math.min(1, t / 1.6)) : 1;
+      var f0 = from || target;
+      cur.yaw = f0.yaw + wrapPi(target.yaw - f0.yaw) * k;
+      cur.pitch = f0.pitch + (target.pitch - f0.pitch) * k;
+      cur.dist = f0.dist + (target.dist - f0.dist) * k;
+      cur.tint = mix(f0.tint || TINT[chap], TINT[chap], k);
+      cur.flick = (f0.flick || 0) + ((FLICK[chap] || 0) - (f0.flick || 0)) * k;
+      if (k >= 1) from = null;
+
+      var c = camera(cur);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+      /* horizon: where the water plane meets the sky for this camera */
+      var hl = Math.hypot(c.fx, c.fz) || 1, hx = c.fx/hl, hz = c.fz/hl;
+      var hy = c.cy - c.f * (hx*c.ux + hz*c.uz) / Math.max(.05, hx*c.fx + hz*c.fz);
+      hy = Math.max(-2, Math.min(H + 2, hy));
+      var tc = proj(c, .8, 31, 0, {}), breath = .86 + .14*Math.sin(t*.8);
+
+      var sky = ctx.createLinearGradient(0, 0, 0, Math.max(2, hy));
+      sky.addColorStop(0, '#020708');
+      sky.addColorStop(.62, '#05171a');
+      sky.addColorStop(1, rgba(mix([12,44,40], cur.tint, .22), 1));
+      ctx.fillStyle = sky; ctx.fillRect(0, 0, W, Math.max(0, hy));
+
+      var water = ctx.createLinearGradient(0, hy, 0, H);
+      water.addColorStop(0, rgba(mix([8,34,31], cur.tint, .12), 1));
+      water.addColorStop(.35, '#03100f');
+      water.addColorStop(1, '#010605');
+      ctx.fillStyle = water; ctx.fillRect(0, Math.max(0, hy), W, H - Math.max(0, hy));
+
+      /* aura: the light the molecule sits in, breathing slowly */
+      var ar = Math.min(W, H) * .62;
+      var au = ctx.createRadialGradient(tc.x, tc.y, 0, tc.x, tc.y, ar);
+      au.addColorStop(0, rgba(cur.tint, .2*breath));
+      au.addColorStop(.45, rgba(cur.tint, .06*breath));
+      au.addColorStop(1, rgba(cur.tint, 0));
+      ctx.fillStyle = au; ctx.fillRect(0, 0, W, H);
+
+      /* horizon haze */
+      if (hy > 0 && hy < H){
+        var hz2 = ctx.createLinearGradient(0, hy - 40, 0, hy + 30);
+        hz2.addColorStop(0, rgba(cur.tint, 0)); hz2.addColorStop(.6, rgba(cur.tint, .07)); hz2.addColorStop(1, rgba(cur.tint, 0));
+        ctx.fillStyle = hz2; ctx.fillRect(0, hy - 40, W, 70);
+      }
+
+      /* reflection, drawn whole and then rippled strip by strip */
+      if (hy < H){
+        rctx.setTransform(1, 0, 0, 1, 0, 0);
+        rctx.clearRect(0, 0, rc.width, rc.height);
+        rctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        scene(rctx, c, t, true, R, false);
+        var y0 = Math.max(0, Math.floor(hy)), stripe = 3, amp = frozen ? 0 : 1;
+        for (var y = y0; y < H; y += stripe){
+          var d = (y - hy) / Math.max(1, H - hy);
+          var dx = amp * Math.sin(y*.085 + t*1.7) * (1.2 + d*7);
+          ctx.globalAlpha = .4 * (1 - d*.75);
+          ctx.drawImage(rc, 0, y*DPR, rc.width, stripe*DPR, dx, y, W, stripe);
+        }
+        ctx.globalAlpha = 1;
+
+        /* the light's long reflection on the water, and its glints */
+        ctx.save();
+        ctx.translate(tc.x, Math.max(hy, 0));
+        ctx.scale(1, 2.4);
+        var col = ctx.createRadialGradient(0, 0, 0, 0, 0, W*.16);
+        col.addColorStop(0, rgba(cur.tint, .12*breath)); col.addColorStop(1, rgba(cur.tint, 0));
+        ctx.fillStyle = col; ctx.fillRect(-W*.16, 0, W*.32, W*.16);
+        ctx.restore();
+        ctx.lineCap = 'round';
+        for (var si = 0; si < streaks.length; si++){
+          var st = streaks[si], u = Math.pow(st.u, 1.6);
+          var sy = hy + (H - hy) * u;
+          if (sy < 0) continue;
+          var sx = tc.x + st.x * W * .32 * (.35 + u);
+          var sl = st.len * (.25 + u) * W * .1;
+          var al = (.03 + .08*(.5 + .5*Math.sin(t*1.3 + st.ph))) * (1 - Math.abs(st.x)*.7);
+          ctx.strokeStyle = rgba(mix([230,255,248], cur.tint, .5), al);
+          ctx.lineWidth = .6 + u*1.4;
+          ctx.beginPath(); ctx.moveTo(sx - sl/2, sy); ctx.lineTo(sx + sl/2, sy); ctx.stroke();
+        }
+      }
+
+      scene(ctx, c, t, false, P, true);
+    }
+
+    function frame(now){
+      if (!running) return;
+      clock += Math.min(.05, (now - last) / 1000); last = now;
+      draw();
+      requestAnimationFrame(frame);
+    }
+    function play(){
+      if (running || frozen || paused || document.hidden) return;
+      running = true; last = performance.now(); requestAnimationFrame(frame);
+    }
+    function stop(){ running = false; }
+
+    addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', function(){ if (document.hidden) stop(); else play(); });
+    resize(); play();
+
+    return {
+      setChapter: function(id){
+        if (!POSE[id] || id === chap) return;
+        from = {yaw:cur.yaw, pitch:cur.pitch, dist:cur.dist, tint:cur.tint.slice(), flick:cur.flick};
+        chap = id; tStart = performance.now();
+        if (frozen) draw();
+      },
+      setFrozen: function(v){ frozen = v; if (v){ stop(); draw(); } else { tStart = performance.now(); from = null; play(); } },
+      setPaused: function(v){ paused = v; if (v) stop(); else play(); },
+      frozen: function(){ return frozen; }
+    };
+  })();
+
+  /* ---------------------------------------------------------------
+     3. SCENE PARALLAX (mouse only)
+  ---------------------------------------------------------------- */
+  var bg = document.querySelector('.bg');
+  var tx = 0, ty = 0, cx = 0, cy = 0, running = false;
+  function tick(){
+    cx += (tx - cx) * 0.045;
+    cy += (ty - cy) * 0.045;
+    var w = innerWidth, h = innerHeight;
+    var dx = -cx * w * 0.0156, dy = -cy * h * 0.015;
+    var cover = 2 * Math.max(Math.abs(dx) / w, Math.abs(dy) / h);
+    var sc = 1 + cover + 0.014 * Math.max(0, cy);
+    bg.style.transform = 'translate3d(' + dx.toFixed(2) + 'px,' + dy.toFixed(2) + 'px,0) scale(' + sc.toFixed(4) + ')';
+    if (Math.abs(tx - cx) < 0.0004 && Math.abs(ty - cy) < 0.0004){ running = false; return; }
+    requestAnimationFrame(tick);
+  }
+  function wake(){ if (!running && !RM && !Scene.frozen()){ running = true; requestAnimationFrame(tick); } }
+  window.addEventListener('pointermove', function(e){
+    if (e.pointerType === 'touch') return;
+    tx = (e.clientX / innerWidth) * 2 - 1;
+    ty = (e.clientY / innerHeight) * 2 - 1;
+    wake();
+  }, {passive:true});
+  document.addEventListener('pointerleave', function(){ tx = 0; ty = 0; wake(); });
+
+
+  /* ---------------------------------------------------------------
+     4. CHAPTERS
+  ---------------------------------------------------------------- */
+  var ORDER = ['mechanism', 'eligibility', 'safety', 'nutrition', 'muscle', 'maintenance'];
+  var hero = document.querySelector('.hero');
+  var rises = [].slice.call(hero.querySelectorAll('.hrise'));
+  var blurb = hero.querySelector('.blurb');
+  var railLinks = [].slice.call(document.querySelectorAll('.index a'));
+  var chapter = 'mechanism', swapT = 0;
+
+  function markRail(id){
+    railLinks.forEach(function(a){
+      var on = a.getAttribute('href').slice(1) === id;
+      a.parentNode.classList.toggle('on', on);
+      if (on){ a.setAttribute('aria-current', 'true'); decode(a.querySelector('.t')); }
+      else a.removeAttribute('aria-current');
+    });
+  }
+  function writeCopy(c){
+    rises[0].textContent = c[0][0];
+    rises[1].textContent = c[0][1];
+    blurb.textContent = '';
+    c[1].forEach(function(line, i){
+      if (i) blurb.appendChild(document.createElement('br'));
+      blurb.appendChild(document.createTextNode(i ? '\n        ' + line : line));
+    });
+  }
+  /* swap the copy the way a chapter change does: drop out, replace, rise back in */
+  function swapCopy(){
+    var c = COPY[lang][chapter];
+    clearTimeout(swapT);
+    hero.classList.add('swapping');
+    swapT = setTimeout(function(){
+      writeCopy(c);
+      void hero.offsetWidth;
+      hero.classList.remove('swapping');
+    }, RM ? 0 : 500);
+  }
+  function showChapter(id){
+    if (!COPY[lang][id] || id === chapter) return;
+    chapter = id;
+    markRail(id);
+    Scene.setChapter(id);
+    swapCopy();
+  }
+  function stepChapter(d){ showChapter(ORDER[(ORDER.indexOf(chapter) + d + ORDER.length) % ORDER.length]); }
+
+  railLinks.forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); showChapter(a.getAttribute('href').slice(1)); });
+  });
+  [].forEach.call(document.querySelectorAll('[data-ch]'), function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); showChapter(a.dataset.ch); });
+  });
+
+  /* the scroll wheel, a swipe or the arrow keys turn the chapters: the page itself never scrolls */
+  var lastTurn = 0;
+  function canTurn(){ return !openPanel && !document.querySelector('.q2-modal-wrap'); }
+  function turn(d){ var now = Date.now(); if (now - lastTurn < 1100 || !canTurn()) return; lastTurn = now; stepChapter(d); }
+  addEventListener('wheel', function(e){ if (Math.abs(e.deltaY) > 12) turn(e.deltaY > 0 ? 1 : -1); }, {passive:true});
+  var ty0 = null;
+  document.querySelector('.stage').addEventListener('touchstart', function(e){ ty0 = e.touches[0].clientY; }, {passive:true});
+  document.querySelector('.stage').addEventListener('touchend', function(e){
+    if (ty0 === null) return;
+    var dy = ty0 - e.changedTouches[0].clientY; ty0 = null;
+    if (Math.abs(dy) > 50) turn(dy > 0 ? 1 : -1);
+  }, {passive:true});
+  document.addEventListener('keydown', function(e){
+    if (e.target.closest && e.target.closest('input, textarea, select, .panel')) return;
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') turn(1);
+    else if (e.key === 'ArrowUp' || e.key === 'PageUp') turn(-1);
+  });
+
+  /* ---------------------------------------------------------------
+     5. SMALL STATE CHANGES
+  ---------------------------------------------------------------- */
+  /* motion on/off, in the menu: freezes the scene */
+  var motion = document.querySelector('.motion-link');
+  var motionLabel = motion.querySelector('.t');
+  function setMotion(on){
+    motion.setAttribute('aria-pressed', String(on));
+    motion.classList.toggle('off', !on);
+    motionLabel.dataset.k = on ? 'motionOn' : 'motionOff';
+    motionLabel.dataset.text = w(motionLabel.dataset.k);
+    decode(motionLabel);
+    Scene.setFrozen(!on);
+  }
+  motion.addEventListener('click', function(e){ e.stopPropagation(); setMotion(motion.getAttribute('aria-pressed') !== 'true'); });
+  if (RM){ motion.setAttribute('aria-pressed', 'false'); motion.classList.add('off'); motionLabel.dataset.k = 'motionOff'; }
+
+  /* footer: advice to see a clinician and the two profile buttons */
+  var dock = document.querySelector('.dock');
+  function renderFoot(){
+    [].forEach.call(document.querySelectorAll('[data-foot]'), function(el){
+      var rule = el.querySelector('.rule');
+      el.innerHTML = Glp1QuizV2.footerHtml(lang);
+      if (rule) el.insertBefore(rule, el.firstChild);
+    });
+    measureDock();
+  }
+  /* on phones the footer wraps, so the copy above it is placed from its measured height */
+  function measureDock(){ root.style.setProperty('--dockh', dock.offsetHeight + 'px'); }
+
+
+  /* ---------------------------------------------------------------
+     6. PANELS — the assessment and the references open over the scene
+  ---------------------------------------------------------------- */
+  var openPanel = null, opener = null, quiz = null, refsData = null;
+  function showPanel(id, e){
+    if (e) e.preventDefault();
+    var p = document.getElementById(id);
+    if (!p) return;
+    if (openPanel && openPanel !== p) hidePanel(true);
+    if (root.classList.contains('nav-open')) setMenu(false);
+    opener = opener || document.activeElement;
+    openPanel = p;
+    p.classList.add('open'); p.setAttribute('aria-hidden', 'false');
+    Scene.setPaused(true);
+    if (id === 'assessment' && !quiz) quiz = Glp1QuizV2.mount(document.getElementById('quiz-v2'), Object.assign({}, QUIZ, {
+      lang: lang,
+      onReferences: function(){ showPanel('references'); }
+    }));
+    if (id === 'references') renderRefs();
+    p.scrollTop = 0;
+    setTimeout(function(){ try { p.querySelector('[data-close]').focus({preventScroll:true}); } catch(err){} }, 60);
+  }
+  function hidePanel(keepFocus){
+    if (!openPanel) return;
+    openPanel.classList.remove('open'); openPanel.setAttribute('aria-hidden', 'true');
+    openPanel = null;
+    if (keepFocus) return;
+    Scene.setPaused(false);
+    if (opener && opener.focus) try { opener.focus({preventScroll:true}); } catch(err){}
+    opener = null;
+  }
+  [].forEach.call(document.querySelectorAll('[data-open]'), function(el){
+    el.addEventListener('click', function(e){ showPanel(el.dataset.open, e); });
+  });
+  [].forEach.call(document.querySelectorAll('[data-close]'), function(el){ el.addEventListener('click', function(){ hidePanel(); }); });
+
+  /* references: international sources in both languages; Iranian sources only in Persian */
+  function renderRefs(){
+    var box = document.getElementById('ref-list');
+    if (!refsData){
+      fetch('data/references.json').then(function(r){ return r.json(); }).then(function(d){ refsData = d; renderRefs(); })
+        .catch(function(){ box.textContent = w('refsError'); });
+      return;
+    }
+    var n = 0, html = '';
+    refsData.groups.forEach(function(g, gi){
+      if (g.iran && lang !== 'fa') return;
+      var items = g.items.filter(function(it){ return !it.iran || lang === 'fa'; });
+      if (!items.length) return;
+      html += '<section class="ref-group' + (g.iran ? ' ref-iran' : '') + '" style="--i:' + gi + '"><h3>' + esc(g.title[lang]) + '</h3>' +
+        '<ol style="counter-reset:ref ' + n + '">' + items.map(function(it){
+          n++;
+          var persian = /[؀-ۿ]/.test(it.cite);
+          return '<li dir="' + (persian ? 'rtl' : 'ltr') + '">' + esc(it.cite) +
+            (it.url ? '<br><a href="' + esc(it.url) + '" target="_blank" rel="noopener">' + esc(it.url.replace(/^https?:\/\//, '')) + '</a>' : '') + '</li>';
+        }).join('') + '</ol></section>';
+    });
+    box.innerHTML = html;
+  }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  /* the MENU pill is the burger: below 830px it opens the same nav set as a panel */
+  var menu = document.querySelector('.menu');
+  var navset = document.getElementById('navset');
+  var menuLabel = menu.querySelector('.t');
+  function setMenu(open){
+    root.classList.toggle('nav-open', open);
+    menu.setAttribute('aria-expanded', String(open));
+    menuLabel.dataset.k = open ? 'close' : 'menu';
+    menuLabel.dataset.text = w(menuLabel.dataset.k);
+    decode(menuLabel);
+    if (open) requestAnimationFrame(function(){
+      var first = navset.querySelector('a');
+      if (first) try { first.focus(); } catch(err){}
+    });
+  }
+  menu.addEventListener('click', function(e){
+    e.stopPropagation();
+    setMenu(!root.classList.contains('nav-open'));
+  });
+  navset.addEventListener('click', function(e){
+    if (e.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Escape' || document.querySelector('.q2-modal-wrap')) return;
+    if (openPanel){ hidePanel(); return; }
+    if (root.classList.contains('nav-open')){ setMenu(false); menu.focus(); }
+  });
+  document.addEventListener('click', function(e){
+    if (root.classList.contains('nav-open') && !navset.contains(e.target) && e.target !== menu)
+      setMenu(false);
+  });
+  addEventListener('resize', function(){
+    if (innerWidth > 830 && root.classList.contains('nav-open')) setMenu(false);
+  });
+
+  /* ---------------------------------------------------------------
+     7. LANGUAGE — Persian (rtl) and English (ltr); the choice is remembered
+  ---------------------------------------------------------------- */
+  function applyWords(){
+    document.title = w('title');
+    var md = document.querySelector('meta[name=description]');
+    if (md) md.setAttribute('content', w('description'));
+    [].forEach.call(document.querySelectorAll('[data-i18n]'), function(el){ el.textContent = w(el.dataset.i18n); });
+    [].forEach.call(document.querySelectorAll('[data-i18n-aria]'), function(el){ el.setAttribute('aria-label', w(el.dataset.i18nAria)); });
+    labels.forEach(function(el){ if (el.dataset.k) el.dataset.text = w(el.dataset.k); settle(el); });
+  }
+  function setLang(next, initial){
+    lang = next === 'en' ? 'en' : 'fa';
+    root.lang = lang;
+    root.dir = lang === 'en' ? 'ltr' : 'rtl';
+    try { localStorage.setItem('glp1_lang', lang); } catch(err){}
+    applyWords();
+    /* the whole page: no selecting, copying, right-click or printing */
+    Glp1QuizV2.protect(document.body, { lang: lang });
+    renderFoot();
+    reserve();
+    if (initial){ writeCopy(COPY[lang][chapter]); return; }
+    labels.forEach(function(el, i){ setTimeout(function(){ decode(el); }, i * 25); });
+    swapCopy();
+    if (quiz) quiz.setLang(lang);
+    if (openPanel && openPanel.id === 'references') renderRefs();
+  }
+  [].forEach.call(document.querySelectorAll('.lang, .lang-mini'), function(b){
+    b.addEventListener('click', function(e){ e.stopPropagation(); setLang(lang === 'fa' ? 'en' : 'fa'); });
+  });
+  setLang(lang, true);
+
+  /* ---------------------------------------------------------------
+     8. BOOT
+  ---------------------------------------------------------------- */
+  function fromHash(){
+    var h = location.hash.slice(1);
+    if (h === 'assessment' || h === 'references') showPanel(h);
+    else if (COPY[lang][h]) showChapter(h);
+  }
+  addEventListener('hashchange', fromHash);
+  /* the medical notice comes first: until it is accepted the page stays hidden behind it,
+     then the entrance plays */
+  function boot(){
+    reserve();
+    measureDock();
+    if (root.classList.contains('gate')){
+      Glp1QuizV2.disclaimer({ dark: true, lang: lang, onLang: function(l){ setLang(l, true); } }).then(function(){
+        root.classList.remove('gate');
+        if (!RM){ root.classList.add('anim'); setTimeout(function(){ root.classList.remove('anim'); }, 3200); }
+        enter();
+      });
+    } else enter();
+  }
+  function enter(){
+    fromHash();
+    if (RM) return;
+    function at(sel, t0, step){
+      [].slice.call(document.querySelectorAll(sel)).forEach(function(el, i){
+        setTimeout(function(){ decode(el); }, t0 + i * (step || 0));
+      });
+    }
+    at('.lang .t', 300);
+    at('.enter .t', 330);
+    at('.menu .t', 390);
+    at('.links .t', 360, 45);
+    at('.index li.on .t', 660);
+    at('.index li:not(.on) .t', 720, 55);
+    at('.cta .t', 900);
+    setTimeout(function(){ root.classList.remove('anim'); }, 2200);
+    setTimeout(function(){ labels.forEach(settle); }, 2600);
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(boot); else addEventListener('load', boot);
+
+  var rt;
+  addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ reserve(); measureDock(); }, 160); });
+})();
+</script>
+</body>
+</html>

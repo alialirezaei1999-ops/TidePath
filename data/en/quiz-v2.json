@@ -1,0 +1,1263 @@
+{
+ "version": "2.1.0",
+ "lang": "en",
+ "title": "GLP-1 eligibility assessment, version 2",
+ "note": "English data for the same engine. Option values (v), scores, flags and conditions must stay identical to data/quiz-v2.json; only text changes. ui sets the answer style (scale for ordered options, reveal for an optional step); slider on a number field is [from, to, start]. s on a condition option is its lowercase wording inside a sentence.",
+ "steps": [
+  {
+   "key": "age",
+   "section": "About you",
+   "title": "How old are you?",
+   "type": "number",
+   "fields": [
+    {
+     "name": "age",
+     "label": "Age",
+     "unit": "years",
+     "min": 10,
+     "max": 115,
+     "step": 1,
+     "placeholder": "e.g. 35",
+     "slider": [
+      12,
+      90,
+      35
+     ]
+    }
+   ]
+  },
+  {
+   "key": "sex",
+   "section": "About you",
+   "title": "What is your biological sex?",
+   "type": "radio",
+   "autoAdvance": true,
+   "options": [
+    {
+     "v": "female",
+     "t": "Female",
+     "icon": "female"
+    },
+    {
+     "v": "male",
+     "t": "Male",
+     "icon": "male"
+    }
+   ]
+  },
+  {
+   "key": "pregnancy",
+   "section": "Safety",
+   "title": "Are you pregnant, breastfeeding or planning a pregnancy?",
+   "type": "radio",
+   "autoAdvance": true,
+   "showIf": [
+    [
+     "sex",
+     "=",
+     "female"
+    ],
+    [
+     "age",
+     ">=",
+     12
+    ],
+    [
+     "age",
+     "<=",
+     55
+    ]
+   ],
+   "options": [
+    {
+     "v": "yes",
+     "t": "I am pregnant",
+     "flag": {
+      "level": "red",
+      "id": "pregnant",
+      "text": "These medicines are not used during pregnancy.",
+      "lessons": [
+       "pregnancy"
+      ]
+     }
+    },
+    {
+     "v": "breastfeeding",
+     "t": "I am breastfeeding",
+     "flag": {
+      "level": "red",
+      "id": "breastfeeding",
+      "text": "Their safety during breastfeeding has not been established, so they are not used.",
+      "lessons": [
+       "pregnancy"
+      ]
+     }
+    },
+    {
+     "v": "planning",
+     "t": "I plan to get pregnant in the next 2 months",
+     "flag": {
+      "level": "red",
+      "id": "planning",
+      "text": "Semaglutide is stopped at least 2 months before trying to conceive; starting it now is not appropriate.",
+      "lessons": [
+       "pregnancy"
+      ]
+     }
+    },
+    {
+     "v": "no",
+     "t": "None of these"
+    }
+   ]
+  },
+  {
+   "key": "mtc",
+   "section": "Safety",
+   "title": "Do you or a family member have a history of medullary thyroid cancer or MEN 2 syndrome?",
+   "type": "radio",
+   "autoAdvance": true,
+   "subtitle": "Medullary cancer is a rare type of thyroid cancer. Simple nodules, an underactive or an overactive thyroid do not count.",
+   "options": [
+    {
+     "v": "yes",
+     "t": "Yes",
+     "d": "I have a personal or family history",
+     "flag": {
+      "level": "red",
+      "id": "mtc",
+      "text": "A personal or family history of medullary thyroid cancer or MEN 2 is an absolute contraindication.",
+      "lessons": [
+       "thyroid"
+      ]
+     }
+    },
+    {
+     "v": "idk",
+     "t": "Not sure",
+     "d": "A doctor should check before any decision",
+     "flag": {
+      "level": "orange",
+      "id": "mtc-unknown",
+      "text": "Your history of medullary thyroid cancer is unclear.",
+      "doctor": "Ask exactly which type of thyroid cancer runs in the family; calcitonin if needed",
+      "lessons": [
+       "thyroid"
+      ]
+     }
+    },
+    {
+     "v": "no",
+     "t": "No"
+    }
+   ]
+  },
+  {
+   "key": "allergy",
+   "section": "Safety",
+   "title": "Have you ever had a serious allergic reaction to medicines in this group?",
+   "type": "radio",
+   "autoAdvance": true,
+   "options": [
+    {
+     "v": "yes",
+     "t": "Yes",
+     "d": "Widespread hives, swelling of the face or lips, or trouble breathing",
+     "flag": {
+      "level": "red",
+      "id": "allergy",
+      "text": "A previous serious allergic reaction to these medicines is a contraindication."
+     }
+    },
+    {
+     "v": "no",
+     "t": "No / I have never used them"
+    }
+   ]
+  },
+  {
+   "key": "bmi",
+   "section": "Your body",
+   "title": "What are your height, weight and waist size?",
+   "type": "number",
+   "liveBmi": true,
+   "fields": [
+    {
+     "name": "height",
+     "label": "Height",
+     "unit": "cm",
+     "min": 100,
+     "max": 250,
+     "step": 1,
+     "placeholder": "e.g. 170",
+     "slider": [
+      140,
+      210,
+      170
+     ]
+    },
+    {
+     "name": "weight",
+     "label": "Weight",
+     "unit": "kg",
+     "min": 30,
+     "max": 300,
+     "step": 0.5,
+     "placeholder": "e.g. 85",
+     "slider": [
+      40,
+      180,
+      80
+     ]
+    },
+    {
+     "name": "waist",
+     "label": "Waist",
+     "unit": "cm",
+     "min": 40,
+     "max": 250,
+     "step": 1,
+     "optional": true,
+     "hint": "Place the tape at your navel and read it after a normal breath out.",
+     "slider": [
+      60,
+      160,
+      95
+     ]
+    }
+   ]
+  },
+  {
+   "key": "ethnicity",
+   "section": "Your body",
+   "title": "What is your ethnic background?",
+   "type": "radio",
+   "autoAdvance": true,
+   "subtitle": "In some groups, health risks start at a lower BMI.",
+   "showIf": [
+    [
+     "$ethnic_adjust",
+     "=",
+     true
+    ]
+   ],
+   "options": [
+    {
+     "v": "me",
+     "t": "Middle Eastern",
+     "adjust": true
+    },
+    {
+     "v": "asian",
+     "t": "South or East Asian",
+     "adjust": true
+    },
+    {
+     "v": "african",
+     "t": "African or Caribbean",
+     "adjust": true
+    },
+    {
+     "v": "white",
+     "t": "European"
+    },
+    {
+     "v": "other",
+     "t": "Other / prefer not to say"
+    }
+   ]
+  },
+  {
+   "key": "weight_history",
+   "section": "Your body",
+   "title": "How has your weight changed in the last 6 months?",
+   "type": "radio",
+   "autoAdvance": true,
+   "options": [
+    {
+     "v": "up",
+     "t": "Up by more than 5%"
+    },
+    {
+     "v": "stable",
+     "t": "About the same"
+    },
+    {
+     "v": "down",
+     "t": "Down, with dieting"
+    },
+    {
+     "v": "fastdown",
+     "t": "Down quickly, without a reason",
+     "flag": {
+      "level": "orange",
+      "id": "unexplained-loss",
+      "text": "Fast weight loss without a reason should be checked before any treatment.",
+      "doctor": "Investigate the unintended weight loss (thyroid, uncontrolled diabetes and other causes)"
+     }
+    }
+   ]
+  },
+  {
+   "key": "comorbid",
+   "section": "Health",
+   "title": "Which of these conditions do you have?",
+   "type": "checkbox",
+   "exclusive": "none",
+   "options": [
+    {
+     "v": "t2d",
+     "t": "Type 2 diabetes",
+     "sign": true,
+     "eoss": 2,
+     "s": "type 2 diabetes"
+    },
+    {
+     "v": "prediabetes",
+     "t": "Prediabetes",
+     "d": "Fasting glucose 100 to 125",
+     "sign": true,
+     "eoss": 1,
+     "s": "prediabetes"
+    },
+    {
+     "v": "htn",
+     "t": "High blood pressure",
+     "sign": true,
+     "eoss": 2,
+     "s": "high blood pressure"
+    },
+    {
+     "v": "dyslip",
+     "t": "High cholesterol or lipids",
+     "sign": true,
+     "eoss": 2,
+     "s": "high cholesterol or lipids"
+    },
+    {
+     "v": "osa",
+     "t": "Sleep apnea (diagnosed)",
+     "sign": true,
+     "eoss": 2,
+     "s": "sleep apnea"
+    },
+    {
+     "v": "masld",
+     "t": "Fatty liver",
+     "d": "On ultrasound or FibroScan",
+     "sign": true,
+     "eoss": 2,
+     "s": "fatty liver"
+    },
+    {
+     "v": "pcos",
+     "t": "Polycystic ovary syndrome (PCOS)",
+     "sign": true,
+     "eoss": 2,
+     "showIf": [
+      [
+       "sex",
+       "!=",
+       "male"
+      ]
+     ],
+     "s": "PCOS"
+    },
+    {
+     "v": "oa",
+     "t": "Knee or hip pain with joint stiffness",
+     "sign": true,
+     "eoss": 2,
+     "s": "knee or hip arthritis"
+    },
+    {
+     "v": "cvd",
+     "t": "Heart or blood vessel disease",
+     "d": "Heart attack, stroke or angioplasty",
+     "sign": true,
+     "eoss": 3,
+     "lessons": [
+      "beyond-weight"
+     ],
+     "s": "heart or blood vessel disease"
+    },
+    {
+     "v": "hf",
+     "t": "Heart failure",
+     "sign": true,
+     "eoss": 3,
+     "s": "heart failure"
+    },
+    {
+     "v": "ckd",
+     "t": "Chronic kidney disease",
+     "sign": true,
+     "eoss": 3,
+     "flag": {
+      "level": "orange",
+      "id": "ckd",
+      "text": "Kidney disease: dehydration from vomiting or diarrhoea can harm the kidneys.",
+      "doctor": "Creatinine and eGFR before starting and after every dose increase",
+      "lessons": [
+       "caution-organs"
+      ]
+     },
+     "s": "chronic kidney disease"
+    },
+    {
+     "v": "t1d",
+     "t": "Type 1 diabetes",
+     "flag": {
+      "level": "orange",
+      "id": "t1d",
+      "text": "These medicines are not approved for type 1 diabetes and carry a risk of low blood sugar.",
+      "doctor": "Decision by an endocrinologist only",
+      "lessons": [
+       "hypoglycemia"
+      ]
+     }
+    },
+    {
+     "v": "none",
+     "t": "None of these"
+    }
+   ]
+  },
+  {
+   "key": "osa_screen",
+   "section": "Sleep",
+   "title": "Which of these are true about your sleep?",
+   "type": "checkbox",
+   "exclusive": "none",
+   "showIf": [
+    [
+     "comorbid",
+     "!has",
+     "osa"
+    ]
+   ],
+   "options": [
+    {
+     "v": "snore",
+     "t": "Loud snoring"
+    },
+    {
+     "v": "tired",
+     "t": "Tiredness or sleepiness during the day"
+    },
+    {
+     "v": "observed",
+     "t": "Others have seen your breathing stop in your sleep"
+    },
+    {
+     "v": "none",
+     "t": "None of these"
+    }
+   ]
+  },
+  {
+   "key": "function",
+   "section": "Health",
+   "title": "How much does your weight limit your daily activities?",
+   "type": "radio",
+   "autoAdvance": true,
+   "ui": "scale",
+   "options": [
+    {
+     "v": "0",
+     "t": "Not at all"
+    },
+    {
+     "v": "1",
+     "t": "A little",
+     "d": "Short of breath on stairs or tiring early"
+    },
+    {
+     "v": "2",
+     "t": "Moderately",
+     "d": "Long walks or standing are hard"
+    },
+    {
+     "v": "3",
+     "t": "Severely",
+     "d": "Daily tasks are hard without help"
+    }
+   ]
+  },
+  {
+   "key": "caution",
+   "section": "Medical history",
+   "title": "Which of these have you had?",
+   "type": "checkbox",
+   "exclusive": "none",
+   "options": [
+    {
+     "v": "pancreatitis",
+     "t": "Inflammation of the pancreas (pancreatitis)",
+     "flag": {
+      "level": "orange",
+      "id": "pancreatitis",
+      "text": "History of pancreatitis: use with great caution, or not at all.",
+      "doctor": "Find the cause of the previous pancreatitis; amylase and lipase if there is abdominal pain",
+      "lessons": [
+       "caution-organs"
+      ]
+     }
+    },
+    {
+     "v": "gastroparesis",
+     "t": "Slow stomach emptying or chronic nausea",
+     "flag": {
+      "level": "orange",
+      "id": "gastroparesis",
+      "text": "These medicines slow stomach emptying further and symptoms may get worse.",
+      "doctor": "Assess how severe the stomach symptoms are"
+     }
+    },
+    {
+     "v": "gallbladder",
+     "t": "Gallstones or gallbladder disease",
+     "flag": {
+      "level": "orange",
+      "id": "gallbladder",
+      "text": "Fast weight loss raises the risk of gallstones.",
+      "doctor": "Ultrasound if there are symptoms",
+      "lessons": [
+       "caution-organs"
+      ]
+     }
+    },
+    {
+     "v": "kidney",
+     "t": "Kidney failure or kidney disease",
+     "flag": {
+      "level": "orange",
+      "id": "kidney",
+      "text": "Dehydration from stomach side effects can harm the kidneys.",
+      "doctor": "Creatinine and eGFR",
+      "lessons": [
+       "caution-organs"
+      ]
+     }
+    },
+    {
+     "v": "retinopathy",
+     "t": "Diabetic eye damage (retinopathy)",
+     "flag": {
+      "level": "orange",
+      "id": "retinopathy",
+      "text": "A fast drop in blood sugar with semaglutide may worsen retinopathy.",
+      "doctor": "Eye examination before starting"
+     }
+    },
+    {
+     "v": "surgery",
+     "t": "Weight-loss or bowel surgery in the past",
+     "flag": {
+      "level": "orange",
+      "id": "bariatric",
+      "text": "After weight-loss surgery, the decision about these medicines belongs to the surgical team.",
+      "doctor": "Coordinate with the surgeon and check micronutrients"
+     }
+    },
+    {
+     "v": "surgerysoon",
+     "t": "Surgery or endoscopy under anaesthesia in the next 2 months",
+     "flag": {
+      "level": "orange",
+      "id": "surgery-soon",
+      "text": "These medicines raise the risk of stomach contents entering the lungs during anaesthesia.",
+      "doctor": "Agree fasting instructions with the anaesthetist",
+      "lessons": [
+       "surgery"
+      ]
+     }
+    },
+    {
+     "v": "alcohol",
+     "t": "Heavy alcohol use",
+     "flag": {
+      "level": "orange",
+      "id": "alcohol",
+      "text": "Heavy drinking raises the risk of pancreatitis and low blood sugar.",
+      "doctor": "Assess alcohol use"
+     }
+    },
+    {
+     "v": "none",
+     "t": "None of these"
+    }
+   ]
+  },
+  {
+   "key": "meds",
+   "section": "Medicines",
+   "title": "Which of these medicines do you take?",
+   "type": "checkbox",
+   "exclusive": "none",
+   "options": [
+    {
+     "v": "insulin",
+     "t": "Insulin",
+     "flag": {
+      "level": "orange",
+      "id": "insulin",
+      "text": "With insulin there is a risk of low blood sugar and the dose will probably need lowering.",
+      "doctor": "Plan to lower the insulin dose and monitor blood sugar",
+      "lessons": [
+       "hypoglycemia"
+      ]
+     }
+    },
+    {
+     "v": "sulfonyl",
+     "t": "Tablets that release insulin",
+     "d": "Glibenclamide, gliclazide",
+     "flag": {
+      "level": "orange",
+      "id": "sulfonyl",
+      "text": "These tablets carry a risk of low blood sugar.",
+      "doctor": "Lower the sulfonylurea dose",
+      "lessons": [
+       "hypoglycemia"
+      ]
+     }
+    },
+    {
+     "v": "ocp",
+     "t": "The oral contraceptive pill",
+     "flag": {
+      "level": "orange",
+      "id": "ocp",
+      "text": "Tirzepatide may reduce how well the contraceptive pill works.",
+      "doctor": "A non-oral or additional method of contraception",
+      "lessons": [
+       "contraception"
+      ]
+     }
+    },
+    {
+     "v": "otherglp",
+     "t": "Another medicine from this group",
+     "d": "Semaglutide, tirzepatide or liraglutide",
+     "flag": {
+      "level": "red",
+      "id": "duplicate-glp1",
+      "text": "Using two medicines from this group at the same time is not allowed.",
+      "lessons": [
+       "safe-buy"
+      ]
+     }
+    },
+    {
+     "v": "sensitive",
+     "t": "Warfarin or levothyroxine",
+     "flag": {
+      "level": "orange",
+      "id": "narrow-drugs",
+      "text": "Absorption of sensitive oral medicines may change.",
+      "doctor": "Monitor INR or TSH"
+     }
+    },
+    {
+     "v": "weightgain",
+     "t": "Medicines that cause weight gain",
+     "d": "Steroids, some psychiatric medicines",
+     "flag": {
+      "level": "info",
+      "id": "weightgain-drugs",
+      "text": "Some medicines raise weight themselves; asking your doctor about alternatives is worthwhile."
+     }
+    },
+    {
+     "v": "none",
+     "t": "None of these"
+    }
+   ]
+  },
+  {
+   "key": "mental_screen",
+   "section": "Wellbeing",
+   "title": "A few short questions about eating and mood",
+   "type": "yesno",
+   "subtitle": "Your answers stay private and are asked only for your safety.",
+   "items": [
+    {
+     "v": "scoff1",
+     "t": "Do you make yourself sick because you feel uncomfortably full?",
+     "group": "scoff"
+    },
+    {
+     "v": "scoff2",
+     "t": "Do you worry you have lost control over how much you eat?",
+     "group": "scoff"
+    },
+    {
+     "v": "scoff3",
+     "t": "Have you lost more than 6 kg in the last 3 months?",
+     "group": "scoff"
+    },
+    {
+     "v": "scoff4",
+     "t": "Do you believe yourself to be fat when others say you are too thin?",
+     "group": "scoff"
+    },
+    {
+     "v": "scoff5",
+     "t": "Would you say that food dominates your life?",
+     "group": "scoff"
+    },
+    {
+     "v": "phq1",
+     "t": "Over the last 2 weeks, have you had little interest or pleasure in doing things on most days?",
+     "group": "phq"
+    },
+    {
+     "v": "phq2",
+     "t": "Over the last 2 weeks, have you felt down, depressed or hopeless on most days?",
+     "group": "phq"
+    },
+    {
+     "v": "harm",
+     "t": "Have you recently had thoughts of harming yourself?",
+     "group": "harm"
+    }
+   ]
+  },
+  {
+   "key": "prior_glp1",
+   "section": "Medication history",
+   "title": "Have you used a GLP-1 medicine before?",
+   "type": "radio",
+   "autoAdvance": true,
+   "options": [
+    {
+     "v": "never",
+     "t": "Never",
+     "pts": 10
+    },
+    {
+     "v": "stopped_side",
+     "t": "Yes, I stopped because of side effects",
+     "pts": 0,
+     "flag": {
+      "level": "info",
+      "id": "prior-side",
+      "text": "Tell your doctor exactly what side effects you had; a slower dose increase often solves the problem.",
+      "lessons": [
+       "side-effects"
+      ]
+     }
+    },
+    {
+     "v": "stopped_cost",
+     "t": "Yes, I stopped because of cost or shortage",
+     "pts": 5,
+     "lessons": [
+      "stopping"
+     ]
+    },
+    {
+     "v": "regain",
+     "t": "Yes, I stopped and my weight came back",
+     "pts": 5,
+     "lessons": [
+      "stopping"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "labs",
+   "section": "Lab tests",
+   "title": "If you have recent test results (last 6 months), enter them",
+   "type": "number",
+   "optionalStep": true,
+   "ui": "reveal",
+   "subtitle": "This is optional; if you do not have them, skip this step.",
+   "fields": [
+    {
+     "name": "hba1c",
+     "label": "HbA1c",
+     "unit": "%",
+     "min": 3,
+     "max": 20,
+     "step": 0.1,
+     "optional": true
+    },
+    {
+     "name": "fbs",
+     "label": "Fasting glucose",
+     "unit": "mg/dL",
+     "min": 40,
+     "max": 600,
+     "step": 1,
+     "optional": true
+    },
+    {
+     "name": "egfr",
+     "label": "eGFR",
+     "unit": "mL/min",
+     "min": 5,
+     "max": 150,
+     "step": 1,
+     "optional": true
+    },
+    {
+     "name": "tg",
+     "label": "Triglycerides",
+     "unit": "mg/dL",
+     "min": 20,
+     "max": 3000,
+     "step": 1,
+     "optional": true
+    }
+   ]
+  },
+  {
+   "key": "protein",
+   "section": "Nutrition",
+   "title": "How many of your main meals include a protein food?",
+   "type": "radio",
+   "autoAdvance": true,
+   "ui": "scale",
+   "subtitle": "Meat, chicken, fish, eggs, dairy or beans and lentils",
+   "options": [
+    {
+     "v": "3",
+     "t": "All 3 meals",
+     "pts": 10
+    },
+    {
+     "v": "2",
+     "t": "2 meals",
+     "pts": 6
+    },
+    {
+     "v": "1",
+     "t": "1 meal or fewer",
+     "pts": 2,
+     "lessons": [
+      "protein-muscle"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "resistance",
+   "section": "Exercise",
+   "title": "How many times a week do you do strength training (weights or bands)?",
+   "type": "radio",
+   "autoAdvance": true,
+   "ui": "scale",
+   "options": [
+    {
+     "v": "2",
+     "t": "2 or more",
+     "pts": 5
+    },
+    {
+     "v": "1",
+     "t": "Once",
+     "pts": 3
+    },
+    {
+     "v": "0",
+     "t": "Never",
+     "pts": 0,
+     "lessons": [
+      "protein-muscle"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "lifestyle",
+   "section": "Lifestyle",
+   "title": "Have you followed a regular diet and activity plan for at least 3 months?",
+   "type": "radio",
+   "autoAdvance": true,
+   "options": [
+    {
+     "v": "failed",
+     "t": "Yes, regularly, but it did not work",
+     "d": "My weight stalled or came back",
+     "pts": 25
+    },
+    {
+     "v": "some",
+     "t": "Partly, on and off",
+     "d": "Short-lived diets or exercise",
+     "pts": 12
+    },
+    {
+     "v": "no",
+     "t": "No",
+     "d": "I want to start properly for the first time",
+     "pts": 5
+    }
+   ]
+  },
+  {
+   "key": "readiness",
+   "section": "Readiness",
+   "title": "Are you ready for weekly injections, possible side effects and regular check-ups?",
+   "type": "radio",
+   "autoAdvance": true,
+   "options": [
+    {
+     "v": "ready",
+     "t": "Completely ready",
+     "pts": 25
+    },
+    {
+     "v": "unsure",
+     "t": "I need more information",
+     "pts": 12
+    },
+    {
+     "v": "no",
+     "t": "I prefer a non-drug approach",
+     "pts": 0
+    }
+   ]
+  },
+  {
+   "key": "access",
+   "section": "Readiness",
+   "title": "Could you cover the monthly cost of the medicine for at least a year?",
+   "type": "radio",
+   "autoAdvance": true,
+   "subtitle": "Stopping early because of cost is one of the main reasons weight comes back.",
+   "options": [
+    {
+     "v": "yes",
+     "t": "Yes",
+     "pts": 15
+    },
+    {
+     "v": "unsure",
+     "t": "Not sure",
+     "pts": 7
+    },
+    {
+     "v": "no",
+     "t": "No",
+     "pts": 0,
+     "lessons": [
+      "stopping"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "goal",
+   "section": "Your goal",
+   "title": "What is your main goal?",
+   "type": "radio",
+   "autoAdvance": true,
+   "options": [
+    {
+     "v": "medical",
+     "t": "Lose 10 to 15% of my weight for my health",
+     "d": "Improve blood sugar, blood pressure or fatty liver",
+     "pts": 10
+    },
+    {
+     "v": "metabolic",
+     "t": "Control appetite and metabolism",
+     "pts": 7
+    },
+    {
+     "v": "gradual",
+     "t": "Lose weight gradually by changing habits",
+     "pts": 5
+    },
+    {
+     "v": "small",
+     "t": "Lose 2 to 4 kg for appearance",
+     "pts": 0,
+     "flag": {
+      "level": "info",
+      "id": "cosmetic-goal",
+      "text": "These medicines are not approved for losing a few kilos for cosmetic reasons.",
+      "lessons": [
+       "eligibility"
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "strings": {
+  "digits": "latin",
+  "listSep": ", ",
+  "bmiCategories": [
+   "Underweight",
+   "Healthy weight",
+   "Overweight",
+   "Obesity class 1",
+   "Obesity class 2",
+   "Obesity class 3"
+  ],
+  "signs": {
+   "osa": "signs of sleep apnea",
+   "function": "limits on daily activities",
+   "labDiabetes": "blood sugar in the diabetes range",
+   "labPrediabetes": "blood sugar in the prediabetes range",
+   "tg": "high triglycerides"
+  },
+  "flags": {
+   "under12": {
+    "level": "red",
+    "id": "under12",
+    "text": "No medicine in this group is approved for weight loss under 12.",
+    "lessons": [
+     "teens"
+    ]
+   },
+   "teen": {
+    "level": "orange",
+    "id": "teen",
+    "text": "For teenagers, weight criteria and the choice of medicine belong to a paediatrician or paediatric endocrinologist.",
+    "doctor": "BMI-for-age percentile and growth assessment",
+    "lessons": [
+     "teens"
+    ]
+   },
+   "elderly": {
+    "level": "orange",
+    "id": "elderly",
+    "text": "In older adults the risk of dehydration and muscle loss is higher.",
+    "doctor": "Assess muscle mass, kidney function and current medicines",
+    "lessons": [
+     "protein-muscle"
+    ]
+   },
+   "self-harm": {
+    "level": "red",
+    "id": "self-harm",
+    "text": "Right now the priority is supporting you, not weight loss. Please talk to someone today: call your local emergency number or a crisis line where you live.",
+    "lessons": [
+     "mind"
+    ]
+   },
+   "ed-normal-bmi": {
+    "level": "red",
+    "id": "ed-normal-bmi",
+    "text": "Signs of an eating disorder with a healthy weight; a weight-loss medicine is not suitable for you.",
+    "lessons": [
+     "mind"
+    ]
+   },
+   "eating-disorder": {
+    "level": "orange",
+    "id": "eating-disorder",
+    "text": "Your answers show signs of an eating disorder.",
+    "doctor": "Assessment by a psychologist or psychiatrist before any medicine",
+    "lessons": [
+     "mind"
+    ]
+   },
+   "depression": {
+    "level": "orange",
+    "id": "depression",
+    "text": "Your answers show signs of depression.",
+    "doctor": "Assess mood and follow it during treatment",
+    "lessons": [
+     "mind"
+    ]
+   },
+   "possible-diabetes": {
+    "level": "orange",
+    "id": "possible-diabetes",
+    "text": "Your test result is in the diabetes range, but you have not reported diabetes.",
+    "doctor": "Confirm a diabetes diagnosis with a repeat test"
+   },
+   "egfr-low": {
+    "level": "orange",
+    "id": "egfr-low",
+    "text": "Your eGFR is below 30.",
+    "doctor": "A kidney specialist’s opinion before starting",
+    "lessons": [
+     "caution-organs"
+    ]
+   },
+   "osa-suspect": {
+    "level": "info",
+    "id": "osa-suspect",
+    "text": "Your symptoms fit sleep apnea; a sleep check with a doctor is worthwhile.",
+    "lessons": [
+     "sleep"
+    ]
+   },
+   "borderline": {
+    "level": "orange",
+    "id": "borderline",
+    "text": "Your BMI is below the official threshold, but your waist is large; the decision about medicine is your doctor’s.",
+    "doctor": "Assess abdominal fat and metabolic risk",
+    "lessons": [
+     "eligibility"
+    ]
+   }
+  },
+  "summary": {
+   "nonDrug": "You meet the official criteria for medicine, but you prefer a non-drug approach. That is a reasonable choice, and you can reassess whenever you like.",
+   "borderline": "Your BMI is {bmi} and you have not reported a related condition, so the official prescribing criteria (BMI 30 or more, or 27 or more with a weight-related condition) are not met.",
+   "notIndicated": "Your BMI is {bmi} ({cat}), which is not in the range these medicines are approved for.",
+   "indicated": "Your BMI is {bmi}{signs}, so the official criteria for medical treatment are met. Your readiness score is {readiness} out of 100{tail}",
+   "signs": " with {list}",
+   "tailPrepare": "; a few preparation steps are needed before starting.",
+   "tailReady": "."
+  },
+  "positives": {
+   "bmi": "Your body mass index (BMI): {bmi} ({cat}){adj}",
+   "adjusted": " — {bmi} after ethnic adjustment",
+   "whtr": "Waist-to-height ratio: {whtr}{good}",
+   "whtrGood": " (in the healthy range)",
+   "lifestyle": "At least 3 months of a regular diet and exercise plan",
+   "protein": "Protein at all three main meals",
+   "resistance": "Regular strength training",
+   "access": "Able to continue treatment for at least a year",
+   "clear": "No contraindications or special cautions were found in your answers"
+  },
+  "errors": {
+   "required": "Please enter “{label}”.",
+   "range": "“{label}” must be between {min} and {max}.",
+   "pickOne": "Please choose one of the options.",
+   "pickSome": "Please choose at least one option, or “None of these”.",
+   "invalid": "The selected option is not valid.",
+   "answerAll": "Please answer every question."
+  }
+ },
+ "routes": {
+  "R": {
+   "status": "red",
+   "label": "Contraindicated",
+   "title": "These medicines are not safe for you right now",
+   "subtitle": "The reason is listed under “Contraindications”.",
+   "steps": [
+    {
+     "badge": "Safety",
+     "title": "Read why they are contraindicated",
+     "desc": "The reason is in the Contraindications card; no dose or brand changes it."
+    },
+    {
+     "badge": "Referral",
+     "title": "Talk to the right doctor",
+     "desc": "A gynaecologist, endocrinologist or psychiatrist, depending on the reason"
+    },
+    {
+     "badge": "Nutrition",
+     "title": "An eating plan suited to your current situation",
+     "desc": "Healthy eating with help from a dietitian, without strict dieting"
+    }
+   ]
+  },
+  "C": {
+   "status": "yellow",
+   "label": "Non-drug route",
+   "title": "Start without injections",
+   "subtitle": "By the official criteria, medicine is not your first option; a food and exercise route is safer and lasts longer.",
+   "steps": [
+    {
+     "badge": "Nutrition",
+     "title": "A modest energy deficit with enough protein",
+     "desc": "About 300 to 500 kcal below your needs, with protein at every meal"
+    },
+    {
+     "badge": "Exercise",
+     "title": "150 minutes of aerobic activity and 2 strength sessions a week",
+     "desc": "To keep muscle and improve metabolism"
+    },
+    {
+     "badge": "Tracking",
+     "title": "Check your weight and waist every month",
+     "desc": "Aim for 0.5 to 1% weight loss a week"
+    },
+    {
+     "badge": "Review",
+     "title": "Reassess after 3 months",
+     "desc": "If a new condition appears or your weight does not change, take this assessment again"
+    }
+   ]
+  },
+  "D": {
+   "status": "blue",
+   "label": "Prepare before medicine",
+   "title": "Medicine may suit you, but prepare first",
+   "subtitle": "You meet the criteria, but you are not yet fully ready for a long treatment.",
+   "steps": [
+    {
+     "badge": "Nutrition",
+     "title": "4 to 8 weeks of nutritional preparation",
+     "desc": "Protein at every meal, enough water, fibre added gradually and small meals"
+    },
+    {
+     "badge": "Exercise",
+     "title": "Start strength training",
+     "desc": "2 sessions a week, so you keep muscle before losing weight"
+    },
+    {
+     "badge": "Tests",
+     "title": "Baseline blood tests",
+     "desc": "HbA1c, fasting glucose, lipids, liver enzymes, creatinine, TSH and vitamin D"
+    },
+    {
+     "badge": "Decision",
+     "title": "Plan the cost for at least a year",
+     "desc": "Stopping early makes weight regain likely"
+    },
+    {
+     "badge": "Doctor",
+     "title": "See a doctor with this report",
+     "desc": "The final decision about medicine and dose is the doctor’s"
+    }
+   ]
+  },
+  "E": {
+   "status": "green",
+   "label": "Medicine candidate",
+   "title": "By the criteria, you are a candidate for medical treatment",
+   "subtitle": "The final decision, the choice of medicine and the dose are your doctor’s. Take this report with you.",
+   "steps": [
+    {
+     "badge": "Doctor",
+     "title": "See a doctor with this report and your test results",
+     "desc": "Bring a list of the medicines you take"
+    },
+    {
+     "badge": "Nutrition",
+     "title": "A nutrition plan alongside the medicine",
+     "desc": "Protein 1.2 to 1.6 g per kg of body weight, enough water, and managing nausea and constipation"
+    },
+    {
+     "badge": "Exercise",
+     "title": "Strength training 2 to 3 times a week",
+     "desc": "The most important way to keep muscle while losing weight quickly"
+    },
+    {
+     "badge": "Tracking",
+     "title": "Check weight, waist and strength every month",
+     "desc": "Discuss losing more than 1.5% a week with your clinician"
+    },
+    {
+     "badge": "Maintenance",
+     "title": "A plan for after the medicine",
+     "desc": "Plan how to keep the result from the very start"
+    }
+   ]
+  }
+ },
+ "doctorOverlay": {
+  "status": "orange",
+  "suffix": " — with a doctor’s review",
+  "title": "A doctor should see these points before any decision",
+  "step": {
+   "badge": "Doctor",
+   "title": "Review the cautions with a doctor",
+   "desc": "Take the list “What to tell or ask my doctor” with you"
+  }
+ },
+ "disclaimer": "This assessment is educational and an initial screening only. It does not replace an examination, diagnosis, prescription, or the opinion of a physician or clinical nutrition specialist. The choice of medicine, the dose and how to use it are your doctor’s decision, and your eating plan is your clinical dietitian’s."
+}
